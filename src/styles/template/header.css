@@ -1,0 +1,60 @@
+.header {
+    color: linear-gradient(90deg, red, black);
+    background-color:  #0e3d62;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    grid-area: header;
+}
+
+.text {
+    /* background-image: linear-gradient(to bottom, rebeccapurple, steelblue, turquoise); */
+    background-image: linear-gradient(to top, rgb(170, 0, 0), rgb(231, 105, 2), rgb(248, 244, 3));
+    background-clip: text;
+    -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
+    -webkit-text-fill-color: transparent;
+    color: black;
+}
+
+.header>i {
+    margin: 0px 30px;
+}
+
+.config-img, .arrow {
+    color: red;
+    height: 18px;
+}
+
+.down{
+    animation: to-down .8s forwards;
+}
+.left {
+    animation: to-left 0.8s forwards;
+}
+
+@keyframes to-left{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes to-down {
+    /* 0%{
+        transform: rotate();
+    } */
+    100%{
+        transform: rotate(-0deg);
+    }
+}
+
+.color1 {color: #140e1a;}
+.color2 {color: #0e3d62;}
+.color3 {color: #087bba;}
+.color4 {color: #08c8ff;}
+.color5 {color: #0ffff8;}

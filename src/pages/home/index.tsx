@@ -1,15 +1,9 @@
-import Header from '@/components/templates/Header'
+import Default from '../../components/templates/Default'
 
-interface Props {
-
-}
-
-export default function Index() {
-    return (
-        <>
-        <Header />
-        
-        
-        </>
-    )
+export default function Home() {
+  return (
+    <Default title='Portfolios'>
+      'Olá'
+    </Default>
+  )
 }
