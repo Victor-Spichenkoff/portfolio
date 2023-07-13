@@ -3,8 +3,9 @@ import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 interface PropsHeader {
     title:string
-    setShowMenu:any
-    showMenu: boolean
+    setShowMenu?:any
+    showMenu?: boolean
+    showAll?: boolean
 }
 
 export default function Header(props: PropsHeader) {
@@ -35,18 +36,29 @@ export default function Header(props: PropsHeader) {
 
     return (
         <>
-        <div className='header'>
-        <i className="fa fa-lg"
-            onClick={(e)=>toggleMenu(e.target)}
-        ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i>
-        <header className='text'>
-            <a href="#">
-                <h1>{props.title}</h1>
-            </a>
-        </header>
-        <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
         
-        </div></>
+        {props.showAll ? ( <>
+            <div className='header'>
+                <i className="fa fa-lg"
+                    onClick={(e)=>toggleMenu(e.target)}
+                ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i>
+                <header className='text'>
+                    <a href="#">
+                        <h1>{props.title}</h1>
+                    </a>
+                </header>
+                <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
+            </div>
+                </>) : (<>
+                <div className="header header2">
+                <header className='text' id='only-h1'>
+                    <a href="#">
+                        <h1>{props.title}</h1>
+                    </a>
+                </header>
+                </div>
+        </>)}
+        </>
     )
     // return (
     //     <>

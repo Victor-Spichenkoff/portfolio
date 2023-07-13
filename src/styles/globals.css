@@ -12,6 +12,7 @@ body, html, window {
   --bg-dark-blue: #0e3d62;
   --bg-blue: 087bba;
   --bg-main-color: rgba(32, 32, 32, 0.973);
+  --header-height: 50px;
 } 
 
 a{

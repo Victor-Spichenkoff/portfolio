@@ -1,0 +1,46 @@
+.error-mensage {
+    background-color: rgb(221, 13, 13);
+    padding: 12px 12px;
+    color: rgb(226, 226, 226);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    animation: errorMensage 5s forwards;
+}
+
+
+.success-mensage {
+    background-color: rgb(2, 167, 2);
+    padding: 12px 12px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    animation: errorMensage 5s forwards;
+}
+
+@keyframes errorMensage {
+    0%{
+        opacity: 0%;
+    }
+    10% {
+        opacity: 100%;
+    }
+    90% {
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+        display: none;
+    }
+}

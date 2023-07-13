@@ -1,6 +1,9 @@
 import '@/styles/globals.css'
 import '@/styles/template/default.css'
 import '@/styles/template/header.css'
+import '@/styles/auth/Auth.css'
+import '@/styles/template/Error.css'
+
 import type { AppProps } from 'next/app'
 import Home from './home'
 

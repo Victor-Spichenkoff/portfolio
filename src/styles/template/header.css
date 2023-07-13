@@ -10,6 +10,11 @@
     grid-area: header;
 }
 
+.header2 {
+    display: flex;
+    justify-content: center;
+}
+
 .text {
     /* background-image: linear-gradient(to bottom, rebeccapurple, steelblue, turquoise); */
     background-image: linear-gradient(to top, rgb(170, 0, 0), rgb(231, 105, 2), rgb(248, 244, 3));
@@ -26,6 +31,12 @@
 .config-img, .arrow {
     color: red;
     height: 18px;
+}
+
+#only-h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .down{
