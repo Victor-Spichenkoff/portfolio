@@ -39,3 +39,18 @@ a{
       '';
 } */
 
+.not-exists-page{
+  color: rgb(187, 7, 7);
+  font-size: 100px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.not-exists-page > p {
+  font-size: 40px;
+  color: skyblue;
+}

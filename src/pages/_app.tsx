@@ -5,9 +5,14 @@ import '@/styles/auth/Auth.css'
 import '@/styles/template/Error.css'
 
 import type { AppProps } from 'next/app'
-import Home from './home'
+import { getStoragedUser, setToken } from '@/hooks/useUser'
+
 
 export default function App({ Component, pageProps }: AppProps) {
+  let user = getStoragedUser()
+  if (user) {
+    setToken(user)
+  }
   return <Component {...pageProps} />
   // return <Home/>
 }

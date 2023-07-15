@@ -1,4 +1,5 @@
 // import s from '@/styles/template/header.module.css'
+import { guest } from '@/hooks/useUser'
 import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 interface PropsHeader {
@@ -37,7 +38,7 @@ export default function Header(props: PropsHeader) {
     return (
         <>
         
-        {props.showAll ? ( <>
+        {props.showAll && !guest() ? ( <>
             <div className='header'>
                 <i className="fa fa-lg"
                     onClick={(e)=>toggleMenu(e.target)}

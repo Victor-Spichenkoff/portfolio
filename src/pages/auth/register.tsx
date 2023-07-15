@@ -2,7 +2,6 @@ import Error from "@/components/templates/Error";
 import { useEffect, useState } from "react";
 import { baseUrl } from '@/global'
 import axios from 'axios'
-import { error } from "console";
 
 interface PropsRegister{
     setShowLogin:any
@@ -12,8 +11,7 @@ export default function Register(props: PropsRegister) {
     const [user, setUser] = useState({})
     const [errorInfo, setErrorInfo] = useState({msg:'', type:'success'})
     const [showError, setShowError] = useState(false)
-    let errorOrSucess = 'success' 
-    let errorMensage = ''
+
 
     function getInformations() {
         const name = String(document.getElementById('user-name').value)
@@ -47,7 +45,7 @@ export default function Register(props: PropsRegister) {
 
         console.log(user)
         axios.post(`${baseUrl}/user`, user)
-            .then(res => handleResponse(res))
+            .then((res:any) => handleResponse(res))
 
  
     }

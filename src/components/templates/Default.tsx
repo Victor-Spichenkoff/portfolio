@@ -3,10 +3,12 @@ import Header from "./Header"
 import SideMenu from './SideMenu'
 import Footer from './Footer'
 import Content from './Content'
+import { guest } from "@/hooks/useUser"
 
 interface PropsDefault{
     title:string
     children:any
+    showAllHeader?: any
 }
 
 export default function Default(props: PropsDefault) {
@@ -14,7 +16,7 @@ export default function Default(props: PropsDefault) {
 
     return (
       <div className="default" id="default">
-            <Header title={props.title} setShowMenu={setShowMenu} showMenu={showMenu}></Header>
+            <Header title={props.title} setShowMenu={setShowMenu} showMenu={showMenu} showAll={props.showAllHeader}></Header>
             
             <Content>
               <SideMenu></SideMenu>
