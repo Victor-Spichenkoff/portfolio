@@ -10,7 +10,7 @@ export default function Auth() {
     const [showLogin, setShowLogin] = useState(true)
     
     return (<>
-    <Header title="Portfolio" showAll={false}></Header>
+    <Header title="Portfolios" showAll={false}></Header>
     <div className="auth-page">
         { showLogin ? <Login setShowLogin={setShowLogin}/> : <Register setShowLogin={setShowLogin}/> }
     <Footer></Footer>

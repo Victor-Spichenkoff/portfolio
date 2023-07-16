@@ -1,7 +1,9 @@
 // import s from '@/styles/template/header.module.css'
-import { guest } from '@/hooks/useUser'
+import { clearStoragedUser, guest } from '@/hooks/useUser'
 import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
+import Link from 'next/link'
+
 interface PropsHeader {
     title:string
     setShowMenu?:any
@@ -44,19 +46,20 @@ export default function Header(props: PropsHeader) {
                     onClick={(e)=>toggleMenu(e.target)}
                 ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i>
                 <header className='text'>
-                    <a href="#">
+                    <Link href="/home">
                         <h1>{props.title}</h1>
-                    </a>
+                    </Link>
                 </header>
                 <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
             </div>
                 </>) : (<>
                 <div className="header header2">
                 <header className='text' id='only-h1'>
-                    <a href="#">
+                    <Link href="/home">
                         <h1>{props.title}</h1>
-                    </a>
+                    </Link>
                 </header>
+                {guest() ? (<Link className='login-guest' href='/auth' onClick={clearStoragedUser}>Make Login</Link>) : ('')}
                 </div>
         </>)}
         </>

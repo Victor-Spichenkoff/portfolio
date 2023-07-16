@@ -12,7 +12,6 @@ function getStoragedUser() {
         user = JSON.parse(user)
         return user
     } catch(e) {
-        console.log('Erro ao pegar localStorage'+e)
         return {token:''}
     }
 }
@@ -64,17 +63,21 @@ function verifyAcess(other?:string, timer:number=0) {
 
 function guest() {
     const user = getStoragedUser()
-
-    console.log(user)
-
-    if(user.guest) {
-        // setGuest(true)
-        return true
-    } else {
+    try{
+        
+        if(user.guest) {
+            return true
+        } else {
+            return false
+        }
+    } catch(e) {
         return false
-        // setGuest(false)
     }
 }
 
 
-export { getStoragedUser, setToken, verifyAcess, guest}
+function clearStoragedUser() {
+    localStorage.removeItem(user_key)
+}
+
+export { getStoragedUser, setToken, verifyAcess, guest, clearStoragedUser}

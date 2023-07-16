@@ -64,6 +64,12 @@
     }
 }
 
+.login-guest {
+    position: fixed;
+    right: 40px;
+    color: white;
+}
+
 .color1 {color: #140e1a;}
 .color2 {color: #0e3d62;}
 .color3 {color: #087bba;}
