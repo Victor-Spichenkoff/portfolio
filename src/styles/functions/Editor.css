@@ -1,0 +1,61 @@
+.editor-edition{
+    margin: 17px 0px;
+}
+
+.creation-edition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.edition-inputs > input {
+    padding: 6px 4px;
+    margin: 10px 0px;
+    font-size: 15px;
+    color: rgb(0, 60, 100);
+    border: none;
+    border-bottom: none;
+    background-color: white;
+    border-radius: 7px;
+    width: 80vw;
+    font-weight: 500;
+}
+
+
+input:-webkit-autofill {
+  border: none;
+  border-radius: 5px;
+  -webkit-text-fill-color: rgb(0, 0, 0) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0a5cb9 inset;
+  transition: background-color 5000s ease-in-out 0s;
+} 
+
+
+.edition-inputs > input:focus {
+    outline:none;
+    border: none;
+    border-bottom: black 4px solid;
+    input-security: auto;
+}
+
+.edition-inputs > label, .creation-edition > label, .edition-label {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+.edition-inputs {
+    margin: 10px 0px 10px 0px;
+}
+
+#label-editor {
+    margin-bottom: 10px;
+}
+
+.div-actions-projects {
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 0px 100px;
+}

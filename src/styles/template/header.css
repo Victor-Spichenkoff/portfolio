@@ -2,6 +2,7 @@
     color: linear-gradient(90deg, red, black);
     background-color:  #0e3d62;
     height: 50px;
+    width:100%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;

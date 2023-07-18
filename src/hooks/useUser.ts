@@ -1,10 +1,7 @@
 import { baseUrl, user_key } from "@/global"
 import axios from "axios"
-import { useEffect, useState } from "react"
 import { useRouter } from 'next/router'
-import Error from "@/components/templates/Error"
 
-// const [guest, setGuest] = useState(false)
 
 function getStoragedUser() {
     try{
@@ -45,19 +42,19 @@ function verifyAcess(other?:string, timer:number=0) {
     const user:any =  getStoragedUser()
 
     axios.post(`${baseUrl}/validateToken`, user)
-    .then((res:any)=> {
-        if(!res.data) {
-            setTimeout(()=>{
-                router.push('/auth')
-            }, timer)
-        } else{
-            if(other){
+        .then((res:any)=> {
+            if(!res.data) {
                 setTimeout(()=>{
-                    router.push('/'+other)
+                    router.push('/auth')
                 }, timer)
-            } 
-        }      
-    })
+            } else{
+                if(other){
+                    setTimeout(()=>{
+                        router.push('/'+other)
+                    }, timer)
+                } 
+            }      
+        })
 }
 
 

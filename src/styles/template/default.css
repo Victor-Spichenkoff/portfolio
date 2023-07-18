@@ -9,6 +9,9 @@
     overflow: hidden;
     color: white;
     width:var(--side-menu-size);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .footer {
     grid-area: footer;
