@@ -52,5 +52,14 @@ a{
 
 .not-exists-page > p {
   font-size: 40px;
-  color: skyblue;
+  color: #087bba;
+}
+
+.btn-1 {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
 }

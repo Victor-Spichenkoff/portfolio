@@ -3,14 +3,23 @@ import axios from 'axios'
 import { baseUrl } from '@/global'
 import { useState } from 'react'
 import Link from 'next/link'
+import { setStoragedProject } from '@/hooks/useProject'
 
 
 export default function SideMenu() {
     const [projects, setProjects] = useState([])
 
+
+
+
+
     function createSideMenu(projects:any) {
         return projects.map((project:any) => {
-            return (<div>{project.name}</div>)
+            return (
+                <Link href={'/editor?id='+project.id} onClick={()=> setStoragedProject(project)}>
+                    <div className='project-side-menu'>{project.name}</div>
+                </Link>
+            )
         })
     }
 
@@ -28,7 +37,7 @@ export default function SideMenu() {
         { guest() ? '' : (    
             <aside className='side-menu' id='side-menu'>
                 <Link href={'/editor'}>
-                    <button className='bg-sky-500'>New Project</button>
+                    <button className='btn-1 new-project-button'>New Project</button>
                 </Link>
                 {createSideMenu(projects)}
             </aside>

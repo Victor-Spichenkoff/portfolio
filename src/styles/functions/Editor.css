@@ -1,5 +1,6 @@
 .editor-edition{
     margin: 17px 0px;
+    box-shadow: 0px 2px 6px 1px black;
 }
 
 .creation-edition {
@@ -20,6 +21,7 @@
     border-radius: 7px;
     width: 80vw;
     font-weight: 500;
+    box-shadow: 0px 2px 6px 1px black;
 }
 
 
@@ -58,4 +60,18 @@ input:-webkit-autofill {
     justify-content: space-around;
     width: 80vw;
     margin: 0px 100px;
+}
+
+.save {
+    background-color: rgb(20, 102, 20);
+    box-shadow: 0px 3px 6px 1px black;
+}
+
+.cancel {
+    background-color: gray;
+    box-shadow: 0px 3px 6px 1px black;
+}
+
+.save:hover, .cancel:hover {
+    box-shadow: none;
 }
