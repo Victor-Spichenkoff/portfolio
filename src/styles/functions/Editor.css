@@ -72,6 +72,15 @@ input:-webkit-autofill {
     box-shadow: 0px 3px 6px 1px black;
 }
 
-.save:hover, .cancel:hover {
+.delete {
+    background-color: rgb(189, 0, 0);
+    box-shadow: 0px 3px 6px 1px black;
+}
+
+.save:hover, .cancel:hover, .delete:hover {
     box-shadow: none;
+}
+
+#header-edition{
+    width:100%;
 }

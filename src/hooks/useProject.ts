@@ -23,7 +23,11 @@ function getStoragedProject() {
     try{
         let project:any = window.localStorage.getItem(project_key)
         project = JSON.parse(project)
-        return project
+        if (project) {
+            return project
+        } else {
+            return {id:null}
+        }
     } catch(e) {
         ''
     }
@@ -37,29 +41,42 @@ function cancel() {
 }
 
 async function send(router:any, handleResponse:any, name:string, link:string, imageUrl:string, description:string, id?:string) {
-
+    console.log('Entrou')
     try{
         const user = getStoragedUser() || ''
         const project = {name, link, imageUrl, description, user_id:user.id}
         if(id) {
-            // axios.post()
-            console.log('Editar')
+            axios.post(`${baseUrl}/project/${id}`, project)
+                .then(res=> handleResponse(res, 'Editing...'))  
+            
         } else {
             console.log(project)
             await axios.post(`${baseUrl}/project`, project)
                 .then(res=>{
                     console.log(res.data)
-                    handleResponse(res)
+                    handleResponse(res, 'Creating...')
                     // setTimeout(()=>{
                     //     router.push('/home')
-                    // }, 1000)
+                    // }, 1500)
                 })
+
+            
         }
-
-
     } catch(e) {
         console.log(e)
     }
 }
 
-export { stringToHtml, clearStoragedProject, cancel, send, setStoragedProject, getStoragedProject }
+
+function deleteProject(id:string, handle:any) {
+    axios.delete(`${baseUrl}/project/${id}`)
+        .then(res=>handle(res, 'Deleting'))
+
+    clearStoragedProject()
+}
+
+
+
+
+
+export { stringToHtml, clearStoragedProject, cancel, send, setStoragedProject, getStoragedProject, deleteProject }
