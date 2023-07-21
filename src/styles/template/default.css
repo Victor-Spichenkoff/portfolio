@@ -9,6 +9,7 @@
     overflow: hidden;
     color: white;
     width:var(--side-menu-size);
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,7 +156,7 @@
             height: 100%;
         }
     }
-    
+
 }
 
 .hidde-always-menu {
