@@ -30,6 +30,7 @@
     border-radius: 6px;
     padding: 4px 8px;
     width: 90px;
+    height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
 }
@@ -60,9 +61,11 @@
 .content {
     grid-area: content;
     grid-auto-flow: column;
-    color: red;
+    color: white;
     background-color: var(--bg-main-color);
     display: flex;
+    height:100%;
+    overflow-y: scroll;
 }
 
 .default {
@@ -99,6 +102,7 @@
 
 @keyframes showMenu {
     0%{
+        display: block;
         width:0px;
         height: 0px;
     }
@@ -156,7 +160,6 @@
             height: 100%;
         }
     }
-
 }
 
 .hidde-always-menu {

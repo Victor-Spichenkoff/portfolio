@@ -11,15 +11,13 @@ export default function SideMenu() {
 
 
 
-
-
     function createSideMenu(projects:any) {
-        return projects.map((project:any) => {
-            return (
-                <Link href={'/editor?id='+project.id} onClick={()=> setStoragedProject(project)}>
+        return projects.map((project:any, index:any) => {
+            return (<>
+                <Link href={'/editor?id='+project.id} onClick={()=> setStoragedProject(project)} key={index}>
                     <div className='project-side-menu'>{project.name}</div>
                 </Link>
-            )
+            </>)
         })
     }
 
