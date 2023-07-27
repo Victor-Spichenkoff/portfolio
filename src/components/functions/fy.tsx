@@ -22,21 +22,23 @@ export default function Fy() {
             )
         })
     }
-    
+
 
     // let constProjects = createPage()
 
 
     useEffect(()=>{
-        getProjects(setProjects, page, projects)
+        getProjects(setProjects, page, projects, setShowLoading)
+
     }, [])
+    console.log(projects)
 
 
     useEffect(()=>{
         let observer = new IntersectionObserver((entries)=>{
             if(entries.some((entry) => entry.isIntersecting)) {
               setPage(currentPage => {
-                getProjects(setProjects, currentPage+1, projects, setShowLoading)
+                getProjects(setProjects, (currentPage+1), projects, setShowLoading)
 
                 console.log(page, projects)
 
@@ -45,8 +47,9 @@ export default function Fy() {
               console.log('nhe')
             }
         })
-
-        observer.observe(document.getElementById('sentinela'))
+        try{
+          observer.observe(document.getElementById('sentinela'))
+        } catch(e) {console.log('erro no observer')}
     
         if(!showLoading) {
           return  observer.disconnect()
@@ -58,9 +61,8 @@ export default function Fy() {
     return (
     <div className="fy-home">
         <h2 className='discovery'>Discovery</h2>
+        
         <div className='fy'>
-
-
             {projects.map((project) => {
               return (
                 <FyProject project={project}></FyProject>

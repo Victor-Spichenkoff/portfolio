@@ -4,31 +4,13 @@ import { getStoragedUser } from "./useUser";
 
 let stop:boolean = false
 let lastPage = -1
-async function  getProjects (setValue:any, page:number, projects:any, setShowLoading?:any, setShow?:any) {
+async function  getProjects (setValue:any, page:number, projects:any, setShowLoading?:any) {
     if(stop) return
     const user = getStoragedUser()
     // let pageUse = page >= 0 ? page-1 : page
 
     axios.get(`${baseUrl}/project/fy/${user.id}?page=${page}`)
         .then(res => {
-            // if(page<=0) {
-            //     setValue(res.data)
-            // } else {
-            //     let final = []
-            //     final.push({...projects})
-
-            //     for (let p of res.data) {
-            //         if(p=='End') {
-            //             setShow(false)
-            //             break
-            //         }
-            //         console.log(p)
-            //         final.append(p)
-            //     }
-
-            //     setValue(final)
-            // }
-
             console.log(page, res.data)
             if(res.data.length==0)  {
                 stop = true
@@ -38,6 +20,7 @@ async function  getProjects (setValue:any, page:number, projects:any, setShowLoa
             }
             else{
                 if(page==0) {
+                    console.log('primeiro')
                     setValue(res.data)
                     return
                 } else {
@@ -48,11 +31,10 @@ async function  getProjects (setValue:any, page:number, projects:any, setShowLoa
                         // lastPage = page
                         return [...previus, ...res.data]
                     })}
+
                 }
         })
-        .catch(res => setValue({name:'Error'}))
-
-
+        .catch(res => console.log('erro no get'))
 }
 
 export {getProjects}

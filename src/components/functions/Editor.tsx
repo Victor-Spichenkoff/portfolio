@@ -1,20 +1,26 @@
 import { useRef, useState } from 'react'
 import Jodit from 'jodit-react'
+import { verifyAcess } from '@/hooks/useUser'
 
 interface PropsEditor {
-    setDescription:any
+    setDescription?:any
     description:string
+    readonly?: boolean 
 }
 
-export default function Editor(props:PropsEditor) {
-    const editor =  useRef(null)
+export default function Editor(props:PropsEditor) { const editor =  useRef(null)
     const [content, setContent] = useState('')
     
     const configEditor = {
-        readonly: false,
+        readonly: props.readonly,
         height: 400,
         width: '80vw',
-        placeholder: 'Write a description...'
+        placeholder: 'Write a description...',
+        showBlocks: {
+            enable: props.readonly,
+            color: '#ccc',
+            tagList: ['p', 'div', '...']
+        }
     }
 
     const handleUpdate = (e:any) => {
@@ -25,7 +31,7 @@ export default function Editor(props:PropsEditor) {
     
 
     return (
-        <div className="editor-edition">
+        <div className="editor-edition" id='editor'>
 
             {/* <label htmlFor="" className='edition-label' id='label-editor'>Description</label> */}
             <Jodit

@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons"
+
 import Link from 'next/link'
 
 
@@ -17,7 +20,7 @@ export default function FyProject(props:FyProjectProps) {
         imageUrl = defaultImage
     }
 
-    if(props.project.link == null) {
+    if(props.project.id == null) {
         return ''
     }
 
@@ -35,8 +38,17 @@ export default function FyProject(props:FyProjectProps) {
 
                 <p>{props.project.name}</p>
                 <div className="likes-user">
-                    <span>{props.project.likes}</span>
-                    <span>{props.project.user? props.project.user.name : ''}</span>
+                    <span>{props.project.likes} <FontAwesomeIcon
+                        icon={faThumbsUp}
+                        style={{ fontSize: 20, color: "white", marginLeft:5 }}
+                        /> </span>
+                    <span>
+                        <abbr title="View Profile">
+                        <Link href={`/viewProfile?id=${props.project.user.id}`}>
+                            {props.project.user? props.project.user.name : ''}
+                        </Link>
+                        </abbr>
+                    </span>
                 </div>
             </div>
         </Link>

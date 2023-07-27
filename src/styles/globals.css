@@ -3,9 +3,12 @@
 @tailwind utilities; */
 
 body, html, window {
-  background-color: rgba(27, 27, 27, 0.973);
+  /* background-color: rgba(27, 27, 27, 0.973); */
   margin: 0px;
+  height: 100vh;
+  background-color: var(--bg-main-color)
 }
+
 
 
 :root {
