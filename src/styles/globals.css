@@ -1,6 +1,12 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+.color1 {color: #140e1a;}
+.color2 {color: #0e3d62;}
+.color3 {color: #087bba;}
+.color4 {color: #08c8ff;}
+.color5 {color: #0ffff8;}
+
 
 body, html, window {
   /* background-color: rgba(27, 27, 27, 0.973); */

@@ -94,17 +94,18 @@ export default function viewProfile() {
                     icon={faThumbsUp}
                     style={{ fontSize: 20, color: "white", marginLeft:5 }} 
                     onClick={()=>increaseLike()}
-                    id='like-icon'/> 
+                    id='like-icon'
+                /> 
             </div>
 
             <div className="contact-like-name">
                 <span>{project.user.contact}</span>
             
-                        <abbr title="View Profile">
-                        <Link href={`/viewProfile?id=${project.user.id}`}>
-                            {project.user.name}
-                        </Link>
-                        </abbr>
+                <abbr title="View Profile">
+                    <Link href={`/viewProfile?id=${project.user.id}`}>
+                        {project.user.name}
+                    </Link>
+                </abbr>
             </div>
         </main>
     </>)

@@ -1,0 +1,95 @@
+.color1 {color: #140e1a;}
+.color2 {color: #0e3d62;}
+.color3 {color: #087bba;}
+.color4 {color: #08c8ff;}
+.color5 {color: #0ffff8;}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile-projects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.profile-contact {
+    color: white;
+    background-color: #087bba;
+    padding: 10px 40px 10px 20px;
+    width: fit-content;
+    border-radius: 8px;
+    margin-top: 30px;
+    position: relative;
+    font-size: 17px;
+}
+
+.copy {
+    width:17px;
+    margin: 0px 0px 0px 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    rotate: 180deg;
+}
+
+
+
+
+#all-projects {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 34px;
+    color: white;
+    margin-top: 200px;
+}
+
+
+
+.profile-project {
+    background-color: #087bba;
+    /* background-color: rgba(7, 155, 240, 0.192); */
+    box-shadow: 4px 9px 7px black;
+    border-radius: 7px;
+    color: whitesmoke;
+    padding: 20px 6px;
+    width: 130px/*clamp(20vw, 12.375vw, 8.75vw)*/;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin:10px;
+    cursor: pointer;
+    box-shadow:  80px #0ffff8;
+}
+
+
+.bio {
+    margin-bottom: 70px;
+}
+
+#profile-image {
+    width: 120px/*15vw*/;
+    height: 100px/*12.5vw*/;
+    overflow: hidden;
+    border: solid withe 3px;
+}
+
+.profile-project-name {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px 17px 0;
+}
+
+
+
+#profile-project-likes{ 
+    width: 100%;
+    float: left;
+}

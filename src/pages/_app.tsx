@@ -6,6 +6,7 @@ import '@/styles/template/Error.css'
 import '@/styles/functions/Editor.css'
 import '@/styles/functions/fy.css'
 import '@/styles/functions/viewProject.css'
+import '@/styles/functions/profile.css'
 
 import type { AppProps } from 'next/app'
 import { getStoragedUser, setToken } from '@/hooks/useUser'
