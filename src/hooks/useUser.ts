@@ -27,6 +27,11 @@ interface User {
     guest?:boolean
 }
 
+function setStoragedUser(user:any) {
+    localStorage.setItem(user_key, JSON.stringify(user))
+}
+
+
 function setToken(user:User) {
     let user2 = getStoragedUser() 
     try{
@@ -77,4 +82,4 @@ function clearStoragedUser() {
     localStorage.removeItem(user_key)
 }
 
-export { getStoragedUser, setToken, verifyAcess, guest, clearStoragedUser}
+export { getStoragedUser, setToken, verifyAcess, guest, clearStoragedUser, setStoragedUser}

@@ -1,5 +1,5 @@
 // import s from '@/styles/template/header.module.css'
-import { clearStoragedUser, guest } from '@/hooks/useUser'
+import { clearStoragedUser, getStoragedUser, guest } from '@/hooks/useUser'
 import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 import Link from 'next/link'
@@ -36,6 +36,8 @@ export default function Header(props: PropsHeader) {
         }
     }
 
+    const user = getStoragedUser()
+
 
     return (
         <>
@@ -50,7 +52,9 @@ export default function Header(props: PropsHeader) {
                         <h1>{props.title}</h1>
                     </Link>
                 </header>
-                <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
+                <Link href={`/myProfile?id=${user.id}`}>
+                    <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
+                </Link>
             </div>
                 </>) : (<>
                 <div className="header header2">

@@ -1,17 +1,16 @@
 import { useRouter } from "next/router"
 import ProfileProject from "@/components/functions/ProfileProject"
-import { baseUrl } from "@/global"
+import { baseUrl, project_key } from "@/global"
 import axios from "axios"
 import { useState } from "react"
-import { getStoragedUser, verifyAcess } from "@/hooks/useUser"
+import { verifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
-import { redirect } from "next/dist/server/api-utils"
+import { setStoragedProject } from "@/hooks/useProject"
 
 
 export default function viewProfile() {
     verifyAcess()
     const router = useRouter()
-    console.log(getStoragedUser())
     
     const [showLoading, setShowLoading] = useState(true)
     const [userAndProjects, setUserAndProjects] = useState<any>({projets:[]})
@@ -24,7 +23,7 @@ export default function viewProfile() {
 
     function renderProjects() {
         return userAndProjects.projets.map((project:any ) => {
-            return <ProfileProject project={project} redirectFunction={redirect}></ProfileProject>
+            return <ProfileProject project={project} redirectFunction={redirectFunction}></ProfileProject>
         }
         )
     }
@@ -33,17 +32,18 @@ export default function viewProfile() {
 
 
     function copy() {
-        let textoCopiado = userAndProjects.contact
-        textoCopiado.select();
-        textoCopiado.setSelectionRange(0, 99999)
-        document.execCommand("copy");
-        alert("O texto é: " + textoCopiado.value);
+        let textoCopiado = document.getElementById('contact')
+        let TextoToCopy =  textoCopiado?.innerText
+
+        navigator.clipboard.writeText(TextoToCopy??'')
+            .then(()=>alert('Contact copied'))
     }
 
-    function redirect(project:any) {
-        router.push(`/viewProject?id=${project.id}`)
-    }
 
+    async function redirectFunction(project:any) {
+        // await setStoragedProject(project)
+        router.push('/editProfile')
+    }
 
 
     if(!userAndProjects.name) {
@@ -58,7 +58,7 @@ export default function viewProfile() {
                 <div className="profile-contact">
 
                         Contact:     
-                        {'    '+ userAndProjects.contact}
+                        <p id='contact' >{userAndProjects.contact}</p>
                         <img src="https://img.icons8.com/?size=512&id=43524&format=png" alt="" className="copy"
                             onClick={()=>copy()}
                         />
@@ -67,6 +67,10 @@ export default function viewProfile() {
                 <article className='description bio'>
                     {userAndProjects.bio?? 'No bio yet'}
                 </article>
+
+                <div className="edit-profile">
+                    <button className="btn-1" onClick={redirectFunction}>Edit</button>
+                </div>
 
                 <h2 id="all-projects">All Projects</h2>
                 <div className="profile-projects">{projects}</div>

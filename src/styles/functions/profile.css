@@ -29,6 +29,21 @@
     font-size: 17px;
 }
 
+#contact{
+    display: inline;
+    width: fit-content;
+    background: none;
+    border: none;
+    color: white;
+    box-sizing: content-box;
+    margin: 0px 4px 0px 2px;
+}
+
+#contact:focus {
+    border: none;
+    outline: none;
+}
+
 .copy {
     width:17px;
     margin: 0px 0px 0px 4px;
@@ -36,6 +51,17 @@
     position: absolute;
     right: 20px;
     rotate: 180deg;
+}
+
+
+.edit-profile {
+    display: flex;
+    justify-content: end;
+    width: 80%;
+}
+
+.edit-profile > button {
+    background-color: #089c0881;
 }
 
 
@@ -47,7 +73,7 @@
     font-weight: 700;
     font-size: 34px;
     color: white;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 
@@ -71,7 +97,7 @@
 
 
 .bio {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 #profile-image {
@@ -93,3 +119,5 @@
     width: 100%;
     float: left;
 }
+
+/*MY PROFILE*/

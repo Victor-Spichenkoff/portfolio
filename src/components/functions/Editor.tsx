@@ -5,7 +5,8 @@ import { verifyAcess } from '@/hooks/useUser'
 interface PropsEditor {
     setDescription?:any
     description:string
-    readonly?: boolean 
+    readonly?: boolean
+    placeholder?:string
 }
 
 export default function Editor(props:PropsEditor) { const editor =  useRef(null)
@@ -15,7 +16,7 @@ export default function Editor(props:PropsEditor) { const editor =  useRef(null)
         readonly: props.readonly,
         height: 400,
         width: '80vw',
-        placeholder: 'Write a description...',
+        placeholder: props.placeholder ??'Write a description...',
         showBlocks: {
             enable: props.readonly,
             color: '#ccc',

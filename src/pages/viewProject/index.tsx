@@ -70,6 +70,15 @@ export default function viewProfile() {
     }
 
 
+    function copy() {
+        let textoCopiado = document.getElementById('contact')
+        let TextoToCopy =  textoCopiado?.innerText
+
+        navigator.clipboard.writeText(TextoToCopy??'')
+            .then(()=>alert('Contact copied'))
+    }
+
+
     if(project.link == '/notFound') {
         return (
                 <div id="project-loading">
@@ -99,7 +108,13 @@ export default function viewProfile() {
             </div>
 
             <div className="contact-like-name">
-                <span>{project.user.contact}</span>
+                <div className="view-contact">
+                    Contact:     
+                    <p id='contact' >{project.user.contact}</p>
+                    <img src="https://img.icons8.com/?size=512&id=43524&format=png" alt="" className="view-copy"
+                        onClick={()=>copy()}
+                    />
+                </div>
             
                 <abbr title="View Profile">
                     <Link href={`/viewProfile?id=${project.user.id}`}>
