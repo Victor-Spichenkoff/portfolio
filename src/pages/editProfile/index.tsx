@@ -10,6 +10,7 @@ import Error from '@/components/templates/Error';
 import { baseUrl, user_key } from '@/global';
 import { verifyAcess } from '@/hooks/useUser';
 import axios from 'axios';
+import { stringToHtml } from '@/hooks/useProject';
 
 
 
@@ -43,24 +44,6 @@ export default function EditProfile() {
 
 
 
-    // function handleResponse(res:any, successMsg:string='Success') {
-    //     //Mostra a mensagem apropriada
-    //     setShowError(false)
-    //     const status:number = res.data.status || res.status
-
-    //     if(status != 204) {//erro
-    //         setErrorInfo({type: 'error', msg: res.data.mensage })
-    //         console.log(errorInfo)
-    //     } else {
-    //         setErrorInfo({type: 'success',  msg: successMsg})
-    //         clearStorageduser()
-    //         setTimeout(()=> router.push('/home'), 1000)
-    //     }
-    //     setShowError(true)
-    //     setTimeout(()=>setShowError(false), 6000)
-    // }
-
-
     function handleDelete(res:any) {
         setShowError(false)
         const status:number = res.data.status || res.status
@@ -77,10 +60,10 @@ export default function EditProfile() {
     }
 
 
-    async function handleError(res:any) {
+    function handleError(res:any) {
         console.log(res.response.data)
         setShowError(false)
-        await window.clearTimeout(0)
+        window.clearTimeout(0)
 
         setErrorInfo({type: 'error', msg: res.response.data })
 
@@ -88,18 +71,20 @@ export default function EditProfile() {
         setTimeout(()=>setShowError(false), 3500)
     }
 
-    async function handleSuccess(msg:string) {
+    function handleSuccess(msg:string) {
         console.log('Sucesso')
         setShowError(false)
-        await window.clearTimeout(0)
+        window.clearTimeout(0)
 
         setErrorInfo({type: 'success',  msg})
 
         setShowError(true)
-        setTimeout(()=>setShowError(false), 3500)
+        setTimeout(()=> {
+            router.push('/myProfile?id='+user.id)
+            setShowError(false)
+        }, 3500)
 
-        // recreateUserStoraged()
-        console.log(getStoragedUser())
+        recreateUserStoraged()
     }
 
 
@@ -111,8 +96,9 @@ export default function EditProfile() {
 
 
     function send() {
+        console.log(bio)
         axios.post(`${baseUrl}/user/update`, {id:user.id, name, contact, bio})
-            .then(() => handleSuccess('Editing...'))
+            .then((r) => handleSuccess('Editing...'))
             .catch(e => handleError(e))
     }
 
@@ -129,6 +115,7 @@ export default function EditProfile() {
     return (
     <div className="creation-edition">
         { showError ? <Error type={errorInfo.type} mensage={errorInfo.msg}></Error>: ''}
+
         <div id="header-edition">
             <Header showAll={false} title={title}></Header>
         </div>
@@ -136,7 +123,7 @@ export default function EditProfile() {
         <Button setValue={setName} value={name} ph='Insert user name' label='Name'></Button>
         <Button setValue={setContact} value={contact} ph='Insert a way to contact you' label='Contact'></Button>
     
-        <Editor setDescription={setBio} description={bio}/>
+        <Editor setDescription={setBio} description={bio} placeholder='Create a bio'/>
 
         <div className="div-actions-projects">
             <Link href={'/myProfile?id='+user.id}>
@@ -144,10 +131,9 @@ export default function EditProfile() {
             </Link>
             {user.id? (            
                 <button className='btn-1 delete' onClick={remove}>Delete</button>
-                // <button className='btn-1 delete' onClick={()=> deleteuser(user.id, handleResponse)}>Delete</button>
                  ): ''}
 
-            <button onClick={() => send()} className='btn-1 save'>Save</button>
+            <button onClick={send} className='btn-1 save'>Save</button>
         </div>
     </div>
     )

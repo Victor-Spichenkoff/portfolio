@@ -6,12 +6,12 @@ import { useState } from "react"
 import { getStoragedUser, verifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { redirect } from "next/dist/server/api-utils"
+import { stringToHtml } from "@/hooks/useProject"
 
 
 export default function viewProfile() {
     verifyAcess()
     const router = useRouter()
-    console.log(getStoragedUser())
     
     const [showLoading, setShowLoading] = useState(true)
     const [userAndProjects, setUserAndProjects] = useState<any>({projets:[]})
@@ -20,6 +20,8 @@ export default function viewProfile() {
         .then(res => setUserAndProjects(res.data))
         .catch(console.log)
 
+
+    const bio = stringToHtml(String(userAndProjects.bio))
 
 
     function renderProjects() {
@@ -65,7 +67,7 @@ export default function viewProfile() {
    
                 </div>
                 <article className='description bio'>
-                    {userAndProjects.bio?? 'No bio yet'}
+                    {bio == 'null'|| bio==null ? 'No bio yet' : bio}
                 </article>
 
                 <h2 id="all-projects">All Projects</h2>

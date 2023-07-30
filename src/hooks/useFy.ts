@@ -37,6 +37,7 @@ async function  getProjects (setValue:any, page:number, projects:any, setShowLoa
         .catch(res => console.log('erro no get'))
 }
 
+
 export {getProjects}
 
                         // // if(previus[page*3].link == res.data[0].link) return previus
