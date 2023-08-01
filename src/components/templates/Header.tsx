@@ -3,6 +3,9 @@ import { clearStoragedUser, getStoragedUser, guest } from '@/hooks/useUser'
 import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog, faArrowDown, faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons"
+
 
 interface PropsHeader {
     title:string
@@ -44,6 +47,9 @@ export default function Header(props: PropsHeader) {
         
         {props.showAll && !guest() ? ( <>
             <div className='header'>
+            {/* <FontAwesomeIcon icon={faDownLeftAndUpRightToCenter}
+                
+            /> */}
                 <i className="fa fa-lg"
                     onClick={(e)=>toggleMenu(e.target)}
                 ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i>
@@ -53,9 +59,14 @@ export default function Header(props: PropsHeader) {
                     </Link>
                 </header>
                 <Link href={`/myProfile?id=${user.id}`}>
-                    <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img'/></i>
+                {/* <FontAwesomeIcon icon={faCog} 
+                    style={{color: 'white', fontSize: '17px'}}
+                    id='cogs'
+                /> */}
+                    <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img' id='config'/></i>
                 </Link>
             </div>
+
                 </>) : (<>
                 <div className="header header2">
                 <header className='text' id='only-h1'>

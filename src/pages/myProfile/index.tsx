@@ -3,10 +3,11 @@ import ProfileProject from "@/components/functions/ProfileProject"
 import { baseUrl, project_key } from "@/global"
 import axios from "axios"
 import { useState } from "react"
-import { verifyAcess } from "@/hooks/useUser"
+import { clearStoragedUser, verifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { setStoragedProject, stringToHtml } from "@/hooks/useProject"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDoorOpen } from "@fortawesome/free-solid-svg-icons"
 
 export default function viewProfile() {
     verifyAcess()
@@ -43,10 +44,15 @@ export default function viewProfile() {
             .then(()=>alert('Contact copied'))
     }
 
+    function exit() {
+        clearStoragedUser()
+        router.push('/auth')
+    }
+
 
     async function redirectFunction(project:any) {
-        // await setStoragedProject(project)
-        router.push('/editProfile')
+        await setStoragedProject(project)
+        router.push('/editor')
     }
 
 
@@ -58,6 +64,14 @@ export default function viewProfile() {
         return (
         <>
             <Header title={userAndProjects.name}></Header>
+
+            <FontAwesomeIcon
+                icon={faDoorOpen}
+                style={{color: 'red'}}
+                id="logout"
+                onClick={exit}
+            />
+
             <main className="profile">
                 <div className="profile-contact">
 
@@ -76,7 +90,7 @@ export default function viewProfile() {
                     <button className="btn-1" onClick={redirectFunction}>Edit</button>
                 </div>
 
-                <h2 id="all-projects">All Projects</h2>
+                <h2 id="all-projects">Your Projects</h2>
                 <div className="profile-projects">{projects}</div>
             </main>
         </>

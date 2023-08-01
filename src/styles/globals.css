@@ -74,3 +74,15 @@ a{
   cursor: pointer;
   box-shadow: 3px 6px 17px black;
 }
+
+@keyframes up-down {
+  0%{
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-20px);
+  } 
+  100%{
+    transform: translatey(0);
+  }
+}

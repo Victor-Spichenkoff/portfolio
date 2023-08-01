@@ -11,7 +11,7 @@ import { verifyAcess } from '@/hooks/useUser';
 const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: false })
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -46,13 +46,14 @@ export default function viewProfile() {
 
     const likesConst = likes ?? project.likes
 
+    const heartColor = showError == 'liked' || showError===true ? 'red' : 'white'
 
-    function animateLike() {
+    const animateLike = () => {
         const like = document.getElementById('like-icon')
 
         if(!like) return 
         like.style.animation = ''
-        setTimeout(()=>like.style.animation = 'spin-like 0.7s 0s infinite', 5)
+        setTimeout(()=>like.style.animation = 'spin-like 1.1s 0s infinite', 5)
         setTimeout(() => like.style.animation='', 3500)
     }
 
@@ -98,13 +99,13 @@ export default function viewProfile() {
             </article>
 
             <div className='like'>
-                Help the creator, give a Like!!!: {String(likesConst)} 
+                Help the creator, give a Like!!!: {String(likesConst)}
                 <FontAwesomeIcon
-                    icon={faThumbsUp}
-                    style={{ fontSize: 20, color: "white", marginLeft:5 }} 
+                    icon={faHeart}
+                    style={{ fontSize: 17, marginLeft:5, color: heartColor}}
                     onClick={()=>increaseLike()}
                     id='like-icon'
-                /> 
+                />
             </div>
 
             <div className="contact-like-name">

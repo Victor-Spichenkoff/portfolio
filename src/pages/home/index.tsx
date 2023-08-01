@@ -7,14 +7,10 @@ import { useState } from 'react'
 export default function Home() {
   verifyAcess()
   
-
-
-  
-
-  return (
+  try{
     <Default title='Portfolios' showAllHeader={true}>
       {/* 'Olá' */}
       <Fy></Fy>
     </Default>
-  )
+  } catch(e) {}
 }

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faThumbsUp } from "@fortawesome/free-solid-svg-icons"
 
 import Link from 'next/link'
 
@@ -38,10 +38,11 @@ export default function FyProject(props:FyProjectProps) {
 
                 <p>{props.project.name}</p>
                 <div className="likes-user">
-                    <span>{props.project.likes} <FontAwesomeIcon
-                        icon={faThumbsUp}
-                        style={{ fontSize: 20, color: "white", marginLeft:5 }}
-                        /> </span>
+                    <span>{props.project.likes}             
+                    <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{ fontSize: 17, marginLeft:5,color:'red'}}
+                    />   </span>
                     <span>
                         <abbr title="View Profile">
                         <Link href={`/viewProfile?id=${props.project.user.id}`}>

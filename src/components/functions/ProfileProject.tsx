@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons"
+import { faThumbsUp, faHeart  } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 interface ProfileProjectProps {
@@ -30,8 +30,8 @@ export default function ProfileProject(props: ProfileProjectProps) {
 
         <div id="profile-project-likes">{props.project.likes} 
             <FontAwesomeIcon
-                icon={faThumbsUp}
-                style={{ fontSize: 20, color: "white", marginLeft:5 }}
+                icon={faHeart}
+                style={{ fontSize: 17, marginLeft:5,color:'red'}}
             />    
         </div>
 

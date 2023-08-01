@@ -17,9 +17,11 @@
 
 .discovery {
     color: blue;
-    width: 100%;
+    width: 101.7%;
+    overflow: hidden;
     height: 40px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -88,5 +90,8 @@
 @media (max-width: 747px) {
     .fy{
         grid-template-columns: 1fr 1fr;
+    }
+    .discovery {
+        width: 100%;
     }
 }

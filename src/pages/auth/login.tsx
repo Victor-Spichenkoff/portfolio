@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const TextEncodingPolyfill = require('text-encoding');
 Object.assign(global, {
   TextEncoder: TextEncodingPolyfill.TextEncoder,
@@ -88,7 +90,7 @@ export default function Login(props:Propslogin) {
             </div>
             <div className="extra-actions">
                 <p onClick={()=> props.setShowLogin(false)}>Don't have an account? Create here</p>
-                <a href="" className="">Forgot Password?</a>
+                <Link href="/auth/forgot" className="">Forgot Password?</Link>
             </div>
         </div>
     )

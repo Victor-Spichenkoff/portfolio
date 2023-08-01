@@ -4,16 +4,15 @@ import { getProjects } from "@/hooks/useFy"
 import { getStoragedUser } from "@/hooks/useUser"
 import axios from "axios"
 import { baseUrl } from "@/global"
-let vezes = 0
 
 let stop = false
 
 export default function Fy() {
-    vezes++
 
     const [projects, setProjects] = useState([{name:'', user:{}}])
     const [page, setPage] = useState(0)
     const [showLoading, setShowLoading] = useState(true)
+    const [stop, setStop] = useState(false)
 
     const loaderRef = useRef(null)
 
@@ -30,44 +29,74 @@ export default function Fy() {
 
     // let constProjects = createPage()
 
-    useEffect(()=>{
-        console.log('useEffect')
-        getProjectsHere()
-        // getProjects(setProjects, page, projects, setShowLoading)
-    }, [])
+    // useEffect(()=>{
+    //     console.log('useEffect')
+    //     getProjectsHere(page)
+    //     // getProjects(setProjects, page, projects, setShowLoading)
+    // }, [page])
 
 
-    async function  getProjectsHere () {
-      if(stop) return
-      const user = getStoragedUser()
-      // let pageUse = page >= 0 ? page-1 : page
+  //   async function  getProjectsHere (page:number) {
+  //     if(stop) return
+  //     const user = getStoragedUser()
+  //     // let pageUse = page >= 0 ? page-1 : page
   
+  //     axios.get(`${baseUrl}/project/fy/${user.id}?page=${page}`)
+  //         .then(res => {
+  //           console.log(page, res.data)
+  //             if(res.data.length==0)  {
+  //                 stop = true
+  //                 console.log('Fim')
+  //                 setShowLoading(false)
+  //                 return 
+  //             }
+  //             else{
+  //                 if(page==0) {
+  //                   // setPage(page+1)
+  //                   console.log('primeiro', page)
+  //                   setProjects(res.data)
+  //                   return
+  //                 } else {
+  //                     return setProjects((previus:any[]) => {
+  //                         // if(lastPage == page) {
+  //                         //     return [...previus]
+  //                         // }
+  //                         // lastPage = page
+  //                         // setPage(page => 1+page)
+  //                         return [...previus, ...res.data]
+  //                     })}
+  //             }
+  //         })
+  //         .catch(res => console.log('erro no get'))
+  // }
+  async function getProjectsHere (page?:number) {
+      if(stop) return
+      // let pageUse = page >= 0 ? page-1 : page
+      const user = getStoragedUser()
+
       axios.get(`${baseUrl}/project/fy/${user.id}?page=${page}`)
           .then(res => {
             console.log(page, res.data)
               if(res.data.length==0)  {
-                  stop = true
+                  setStop(true)
                   console.log('Fim')
                   setShowLoading(false)
                   return 
               }
               else{
-                  if(page==0) {
-                    // setPage(page+1)
-                    console.log('primeiro', page)
-                      setProjects(res.data)
-                      return
-                  } else {
-                      return setProjects((previus:any[]) => {
-                          // if(lastPage == page) {
-                          //     return [...previus]
-                          // }
-                          // lastPage = page
-                          // setPage(page => ++page)
-                          return [...previus, ...res.data]
-                      })}
-
-                  }
+                console.log(projects)
+                console.log(res.data)
+                if(page==0) {
+                  setProjects(res.data)
+                } else{
+                  setProjects((old:never) => {
+                    try{
+                      if(old[page*4].id == res.data[0].id) return [...old]
+                    } catch(e) {}
+                    return [...old, ...res.data]
+                  })
+                }
+              }
           })
           .catch(res => console.log('erro no get'))
   }
@@ -78,9 +107,12 @@ export default function Fy() {
         let observer = new IntersectionObserver((entries)=>{
             if(entries.some((entry) => entry.isIntersecting)) {
               setPage(old => {
+                getProjectsHere(old)
                 return old+1
               })
-              getProjectsHere()
+              // getProjectsHere()
+              
+              // getProjectsHere()
               // getProjects(setProjects, (currentPage+1), projects, setShowLoading)
               // setPage(old => ++old)
               console.log('nhe')

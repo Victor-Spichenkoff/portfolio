@@ -30,7 +30,9 @@ export default function Register(props: PropsRegister) {
         if(status != 204) {//erro
             setErrorInfo({type: 'error', msg: res.data.mensage })
         } else {
+            props.setShowLogin(true)
             setErrorInfo({type: 'success',  msg: 'User created'})
+            
         }
         setShowError(true)
         console.log(showError)
