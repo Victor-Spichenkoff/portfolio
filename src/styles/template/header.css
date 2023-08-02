@@ -52,6 +52,13 @@
     animation: to-left 0.8s forwards;
 }
 
+
+
+#cogs:hover {
+    animation: spin-cogs 1s forwards;
+}
+
+
 @keyframes to-left{
     0%{
         transform: rotate(0deg);
@@ -70,11 +77,25 @@
     }
 }
 
+
+@keyframes spin-cogs {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+
 .login-guest {
     position: fixed;
     right: 20px;
     color: white;
 }
+
+
+
 
 .color1 {color: #140e1a;}
 .color2 {color: #0e3d62;}

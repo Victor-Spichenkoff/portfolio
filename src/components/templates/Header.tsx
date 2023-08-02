@@ -4,7 +4,7 @@ import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCog, faArrowDown, faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons"
+import { faCog, faAngleDown, faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons"
 
 
 interface PropsHeader {
@@ -47,23 +47,25 @@ export default function Header(props: PropsHeader) {
         
         {props.showAll && !guest() ? ( <>
             <div className='header'>
-            {/* <FontAwesomeIcon icon={faDownLeftAndUpRightToCenter}
-                
-            /> */}
-                <i className="fa fa-lg"
+            <FontAwesomeIcon icon={faAngleDown}
+                style={{color: 'white', fontSize: '17px', margin:'30px', width: 'auto'}}
+                onClick={(e)=>toggleMenu(e.target)}
+                id='arrow'
+            />
+                {/* <i className="fa fa-lg"
                     onClick={(e)=>toggleMenu(e.target)}
-                ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i>
+                ><img src='https://cdn.icon-icons.com/icons2/788/PNG/512/down-arrow_icon-icons.com_64915.png' alt='Open/Close Menu' className="arrow drop-shadow-lg"/></i> */}
                 <header className='text'>
                     <Link href="/home">
                         <h1>{props.title}</h1>
                     </Link>
                 </header>
-                <Link href={`/myProfile?id=${user.id}`}>
-                {/* <FontAwesomeIcon icon={faCog} 
+                <Link href={`/myProfile?id=${user.id}`} style={{width:'auto'}}>
+                <FontAwesomeIcon icon={faCog} 
                     style={{color: 'white', fontSize: '17px'}}
                     id='cogs'
-                /> */}
-                    <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img' id='config'/></i>
+                />
+                    {/* <i className='fa fa-cogs'><img src={imgUrl} alt="Configurations" className='config-img' id='config'/></i> */}
                 </Link>
             </div>
 
