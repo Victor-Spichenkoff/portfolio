@@ -7,6 +7,8 @@ import { getStoragedUser, verifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { redirect } from "next/dist/server/api-utils"
 import { stringToHtml } from "@/hooks/useProject"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCopy } from "@fortawesome/free-solid-svg-icons"
 
 
 export default function viewProfile() {
@@ -50,8 +52,8 @@ export default function viewProfile() {
 
     if(!userAndProjects.name) {
         return <div id="project-loading">
-                    <img src="https://usagif.com/wp-content/uploads/loading-29.gif" alt=""/>
-                </div>
+        <div className="loading-side" id='loading-full'></div>
+    </div>
     } else {
         return (
         <>
@@ -61,8 +63,11 @@ export default function viewProfile() {
 
                         Contact:     
                         {'    '+ userAndProjects.contact}
-                        <img src="https://img.icons8.com/?size=512&id=43524&format=png" alt="" className="copy"
-                            onClick={()=>copy()}
+                        <FontAwesomeIcon
+                            icon={faCopy}
+                            style={{color: 'white', margin: '0px 0px 0px 5px'}}
+                            onClick={copy}
+                            id="copy"
                         />
    
                 </div>

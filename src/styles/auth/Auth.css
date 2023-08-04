@@ -20,7 +20,11 @@
     margin: 40px 20px 0px 40px;
     font-size: 27px;
     height: 40px;
-    color: rgb(235, 0, 0);
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(172, 172, 172));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 
 .entry-form > input {
@@ -77,10 +81,14 @@ input:-webkit-autofill {
 
 .guest-btn {
     color: white;
-    background-color: rgb(71, 6, 156);
+    background-color: transparent;
+    border: rgba(71, 6, 156, 0.568) solid 2px;
     padding: 10px;
-    border: none;
     border-radius: 7px;
+}
+
+.guest-btn:hover, .login-action:hover {
+    transform: scale(1.05);
 }
 
 .extra-actions {

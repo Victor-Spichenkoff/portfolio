@@ -2,18 +2,19 @@
     --side-menu-size: 20vw;
 }
 
-.side-menu {
+#side-menu {
     /* grid-area: side-menu; */
     background: linear-gradient(to top, rgb(121, 2, 2),  rgb(51, 2, 2), black, black);/*rgb(22, 22, 22);*/
     margin:0px;
-    overflow: hidden;
     color: white;
-    width:var(--side-menu-size);
+    width: var(--side-menu-size);
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 5px 10px 0px black;
+    overflow: hidden;
+    background: linear-gradient(to bottom, black, black, black, #087bba, #0ffff8);
 }
 
 .new-project-button {
@@ -28,11 +29,18 @@
     margin: 10px;
     background-color: rgba(67, 68, 68, 0.521);
     border-radius: 6px;
-    padding: 4px 8px;
+    padding: 10px 8px;
     width: 90px;
-    height: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
+}
+
+.new-project-button:hover {
+    transform: scale(1.1);
+}
+
+.project-side-menu:hover {
+    transform: scale(1.1);
 }
 
 
@@ -65,7 +73,8 @@
     background-color: var(--bg-main-color);
     display: flex;
     height:100%;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .default {
@@ -100,6 +109,17 @@
     /* z-index:-222; */
 }
 
+
+.loading-side {
+    width: 60px;
+    height: 60px;
+    margin-top: 100px;
+    border-radius: 50%;
+    border: 20px #0fbbff solid;
+    border-top: 18px #0ffff8 solid;
+    animation: loading infinite 1s linear;
+}
+
 @keyframes showMenu {
     0%{
         display: block;
@@ -127,17 +147,26 @@
     }
 }
 
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 
 @media (max-width: 747px) {
-    .side-menu {
-        width: 60vw;
-        z-index: 4;
+    #side-menu {
+        width: 90vw;
+        z-index: 10;
     }
 
     @keyframes hiddeMenu {
         0%{
-            width:60vw;
+            width:90vw;
             height: 100%;
         }
         80%{
@@ -154,7 +183,7 @@
             height: 0px;
         }
         40%{
-            width:60vw
+            width:90vw
         }
         100%{
             height: 100%;

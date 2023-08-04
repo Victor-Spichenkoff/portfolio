@@ -8,6 +8,8 @@
 
 .fy-home{
     width: 100%;
+    overflow-y: scroll;
+    scroll-margin-bottom: 50px;
 }
 
 .fy{
@@ -24,7 +26,12 @@
 
 
 .discovery {
-    color: blue;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(to top, rgb(8, 104, 214), rgb(2, 231, 14));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: sans-serif;
     /* width: 101.7%;
     overflow: hidden; */
     height: 40px;
@@ -37,7 +44,6 @@
     /* background-color: rgba(65, 65, 65, 0.192); */
     /* border-radius: 7px;
     box-shadow: 0px 2px 4px 1px black; */
-    background-color: rgb(37, 37, 37);
 
     border-radius: 15px;
     box-shadow: 5px 5px 12px #00000035;
@@ -53,11 +59,15 @@
     padding: 10px;
     box-sizing: border-box;
     width: 200px;
+
+    font-size: 14px;
+    font-family: monospace;
 }
 
 .project-on-fy:hover {
     transform: scale(1.05);
     backdrop-filter: none;
+    background-color: rgb(56, 56, 56);
 }
 
 
@@ -69,8 +79,13 @@
 }
 
 
+.project-on-fy > p {
+    font-size: 17px;
+}
+
+
 .likes-user{
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -104,10 +119,16 @@
     box-shadow: 0px 3px 5px 2px black;
 }
 
+
+.hoverScale:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width: 747px) {
     .fy{
         grid-template-columns: 1fr 1fr;
     }
+
     .discovery {
         width: 100%;
     }

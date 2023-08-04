@@ -82,9 +82,9 @@ export default function viewProfile() {
 
     if(project.link == '/notFound') {
         return (
-                <div id="project-loading">
-                    <img src="https://usagif.com/wp-content/uploads/loading-29.gif" alt=""/>
-                </div>
+            <div id="project-loading">
+            <div className="loading-side" id='loading-full'></div>
+        </div>
         )
     } else {
     return (<>

@@ -11,10 +11,6 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxYr
 
 
 export default function FyProject(props:FyProjectProps) {
-    function getStaticProps() {
-        projects: props.project
-    }
-
     let imageUrl = props.project.imageUrl
     if(!props.project.imageUrl) {
         imageUrl = defaultImage
@@ -36,12 +32,12 @@ export default function FyProject(props:FyProjectProps) {
 
 
 
-                <p>{props.project.name}</p>
+                <p id='fy-name'>{props.project.name}</p>
                 <div className="likes-user">
                     <span>{props.project.likes}             
                     <FontAwesomeIcon
                         icon={faHeart}
-                        style={{ fontSize: 17, marginLeft:5,color:'red'}}
+                        style={{ fontSize: 14, marginLeft:5,color:'red'}}
                     />   </span>
                     <span>
                         <abbr title="View Profile">

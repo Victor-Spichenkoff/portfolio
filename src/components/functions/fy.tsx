@@ -26,6 +26,16 @@ export default function Fy() {
         })
     }
 
+    function resize() {
+      const sideMenu = document.getElementById('side-menu')
+      const content = document.querySelector('.content')
+
+      let contentHeight = content.style.height
+
+       sideMenu.style.height = contentHeight
+
+  }
+
 
     // let constProjects = createPage()
 
@@ -89,7 +99,7 @@ export default function Fy() {
                 if(page==0) {
                   setProjects(res.data)
                 } else{
-                  setProjects((old:never) => {
+                  setProjects((old:any) => {
                     try{
                       if(old[page*4].id == res.data[0].id) return [...old]
                     } catch(e) {}
@@ -99,13 +109,16 @@ export default function Fy() {
               }
           })
           .catch(res => console.log('erro no get'))
+
+          resize()
   }
 
   let pageLet = page
 
     useEffect(()=>{
         let observer = new IntersectionObserver((entries)=>{
-            if(entries.some((entry) => entry.isIntersecting)) {
+  
+            if(entries.some((entry) => entry.intersectionRect)) {
               setPage(old => {
                 getProjectsHere(old)
                 return old+1
@@ -117,6 +130,7 @@ export default function Fy() {
               // setPage(old => ++old)
               console.log('nhe')
             }
+    
         })
         try{
           observer.observe(document.getElementById('sentinela'))

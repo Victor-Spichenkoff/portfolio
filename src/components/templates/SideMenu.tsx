@@ -1,13 +1,15 @@
 import { getStoragedUser, setToken, guest } from '@/hooks/useUser'
 import axios from 'axios'
 import { baseUrl } from '@/global'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { setStoragedProject } from '@/hooks/useProject'
 
 
 export default function SideMenu() {
     const [projects, setProjects] = useState([])
+
+
 
 
 
@@ -26,9 +28,11 @@ export default function SideMenu() {
         const user = getStoragedUser()
         axios.get(`${baseUrl}/project/${user.id}`)
             .then(res => setProjects(res.data.projects.projets))
+            .catch()
     }
-    userProjects()
-
+    useEffect(() => userProjects(), [])
+    
+    const menu = projects[0] ? createSideMenu(projects) : <div className="loading-side"></div>
 
     return(  
         <>
@@ -37,7 +41,8 @@ export default function SideMenu() {
                 <Link href={'/editor'}>
                     <button className='btn-1 new-project-button'>New Project</button>
                 </Link>
-                {createSideMenu(projects)}
+                {menu}
+                {/* <div className="loading-side"></div> */}
             </aside>
         )}
 

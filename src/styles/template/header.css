@@ -9,8 +9,17 @@
     align-items: center;
     margin: 0px;
     grid-area: header;
-    box-shadow: 0px 2px 7px 1px black;
+    box-shadow: 0px 2px 7px black;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: oblique;
 }
+
+.header > header:hover {
+    transform: scale(1.05);
+}
+
+
 #cogs {
     margin-left: 17px;
 }
