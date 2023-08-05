@@ -85,6 +85,18 @@ a{
 }
 
 
+hr {
+  border: 0;
+  border-top: 1px solid rgba(219, 219, 219, 0.1);
+  width: 94%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+
 @keyframes up-down {
   0%{
     transform: translateY(0)

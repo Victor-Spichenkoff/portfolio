@@ -15,6 +15,7 @@
     box-shadow: 0px 5px 10px 0px black;
     overflow: hidden;
     background: linear-gradient(to bottom, black, black, black, #087bba, #0ffff8);
+    overflow-y: scroll;
 }
 
 .new-project-button {

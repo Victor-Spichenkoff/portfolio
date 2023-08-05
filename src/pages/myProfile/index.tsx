@@ -3,11 +3,12 @@ import ProfileProject from "@/components/functions/ProfileProject"
 import { baseUrl, project_key } from "@/global"
 import axios from "axios"
 import { useState } from "react"
-import { clearStoragedUser, verifyAcess } from "@/hooks/useUser"
+import { clearStoragedUser, getStoragedUser, verifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { setStoragedProject, stringToHtml } from "@/hooks/useProject"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDoorOpen, faCopy } from "@fortawesome/free-solid-svg-icons"
+import Link from "next/link"
 
 export default function viewProfile() {
     verifyAcess()
@@ -85,13 +86,16 @@ export default function viewProfile() {
                         />
    
                 </div>
+
+                <hr />
+
                 <article className='description bio'>
                     {bio ?? 'No bio yet'}
                 </article>
 
-                <div className="edit-profile">
-                    <button className="btn-1" onClick={redirectFunction}>Edit</button>
-                </div>
+                <Link href="/editProfile" className="edit-profile">
+                    <button className="btn-1">Edit</button>
+                </Link>
 
                 <h2 id="all-projects">Your Projects</h2>
                 <div className="profile-projects">{projects}</div>

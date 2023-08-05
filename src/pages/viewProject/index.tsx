@@ -11,7 +11,7 @@ import { verifyAcess } from '@/hooks/useUser';
 const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: false })
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -91,15 +91,18 @@ export default function viewProfile() {
         <Header title={project.name}></Header>
         { showError===true ? <Error type='error' mensage='Already liked'></Error> : '' }
         <main id='view-project-page'>
-            <div className="project-link">
-                <a href={project.link} target='_blanc'>Visit the project here</a>
+            <div className="project-link hoverScale">
+                <a href={project.link} target='_blanc'>Visit the project</a>
             </div>
+
+            <hr />
+
             <article className='description'>
                 {description}
             </article>
 
             <div className='like'>
-                Help the creator, give a Like!!!: {String(likesConst)}
+                Help the creator, give a Like!!! {String(likesConst)}
                 <FontAwesomeIcon
                     icon={faHeart}
                     style={{ fontSize: 17, marginLeft:5, color: heartColor}}
@@ -112,14 +115,18 @@ export default function viewProfile() {
                 <div className="view-contact">
                     Contact:     
                     <p id='contact' >{project.user.contact}</p>
-                    <img src="https://img.icons8.com/?size=512&id=43524&format=png" alt="" className="view-copy"
-                        onClick={()=>copy()}
+                    <FontAwesomeIcon
+                        icon={faCopy}
+                        style={{color: 'white', margin: '0px 0px 0px 5px', fontSize: '16px'}}
+                        onClick={copy}
+                        id="copy"
                     />
                 </div>
+
             
                 <abbr title="View Profile">
                     <Link href={`/viewProfile?id=${project.user.id}`}>
-                        {project.user.name}
+                        <div className='hoverScale'>{project.user.name}</div>
                     </Link>
                 </abbr>
             </div>

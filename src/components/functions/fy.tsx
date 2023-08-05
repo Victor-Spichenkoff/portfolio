@@ -146,6 +146,7 @@ export default function Fy() {
     return (
     <div className="fy-home">
         <h2 className='discovery'>Discovery</h2>
+        <hr />
         
         <div className='fy'>
             {projects.map((project) => {

@@ -90,7 +90,7 @@ export default function Login(props:Propslogin) {
             </div>
             <div className="extra-actions">
                 <p onClick={()=> props.setShowLogin(false)}>Don't have an account? Create here</p>
-                <Link href="/auth/forgot" className="">Forgot Password?</Link>
+                <Link href="/auth/forgot" >Forgot Password?</Link>
             </div>
         </div>
     )

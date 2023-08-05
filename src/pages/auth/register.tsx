@@ -1,7 +1,8 @@
 import Error from "@/components/templates/Error";
 import { useEffect, useState } from "react";
-import { baseUrl } from '@/global'
+import { baseUrl, user_key } from '@/global'
 import axios from 'axios'
+import { useRouter } from "next/router";
 
 interface PropsRegister{
     setShowLogin:any
@@ -12,6 +13,7 @@ export default function Register(props: PropsRegister) {
     const [errorInfo, setErrorInfo] = useState({msg:'', type:'success'})
     const [showError, setShowError] = useState(false)
 
+    const router = useRouter()
 
     function getInformations() {
         const name = String(document.getElementById('user-name').value)
@@ -48,9 +50,40 @@ export default function Register(props: PropsRegister) {
         console.log(user)
         axios.post(`${baseUrl}/user`, user)
             .then((res:any) => handleResponse(res))
-
- 
     }
+
+
+
+    function showMensageGuest(res:any) {
+        //Mostra a mensagem apropriada
+        setShowError(false)
+        const status:number = res.data.status || res.status
+
+        if(status != 200) {//erro
+            setErrorInfo({type: 'error', msg: res.data.mensage })
+        } else {
+            setErrorInfo({type: 'success',  msg: 'Entering...'})
+            setTimeout(()=> router.push('/home'), 1000)
+        }
+        setShowError(true)
+        setTimeout(()=>setShowError(false), 6000)
+    }
+
+
+    function handleResponseGuest(res:any) {
+        showMensageGuest(res)
+
+        window.localStorage.setItem(user_key, JSON.stringify(res.data))
+    }
+
+    function makeLoginGuest() {
+        axios.post(`${baseUrl}/guest`)
+        .then((res:any) => handleResponseGuest(res))
+    }
+
+
+
+
     return (
         <div className='auth-area'>
             { showError ? <Error type={errorInfo.type} mensage={errorInfo.msg}></Error>: ''}
@@ -62,7 +95,7 @@ export default function Register(props: PropsRegister) {
                 <input type="password"  placeholder="Confirm your password" id="user-confirmPassword"/> <br />
                 <div className="div-login-actions">
                     <button className="login-action" onClick={sendUser}>Create</button>
-                    <button className="guest-btn">Login as Guest</button>
+                    <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>
                 </div>
             </div>
             <div className="extra-actions">

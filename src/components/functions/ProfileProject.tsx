@@ -12,6 +12,7 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxYr
 
 export default function ProfileProject(props: ProfileProjectProps) {
     const image = props.project.imageUrl ?? defaultImage
+    
     return (
     // <Link href={`/viewProject?id=${props.project.id}`}>
         <article className="profile-project" onClick={() => {
