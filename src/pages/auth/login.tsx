@@ -84,7 +84,7 @@ export default function Login(props:Propslogin) {
                 <input type="text" placeholder="Name" id='user-name'/> <br />
                 <input type="password"  placeholder="Password" id='user-password'/> <br />
                 <div className="div-login-actions">
-                    <button className="login-action" onClick={makeLogin}>Login</button>
+                    <button className="login-action hoverScale" onClick={makeLogin}>Login</button>
                     <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>
                 </div>
             </div>

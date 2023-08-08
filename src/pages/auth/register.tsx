@@ -98,7 +98,7 @@ export default function Register(props: PropsRegister) {
                     <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>
                 </div>
             </div>
-            <div className="extra-actions">
+            <div className="extra-actions hoverScale">
                 <p onClick={()=> props.setShowLogin(true)}>Already have an account? Make the Login</p>
             </div>
         </div>

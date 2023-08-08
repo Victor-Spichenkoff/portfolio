@@ -102,15 +102,15 @@ export default function Fy() {
                   setProjects((old:any) => {
                     try{
                       if(old[page*4].id == res.data[0].id) return [...old]
-                    } catch(e) {}
+                    } catch(e) {
+                      return [...old, ...res.data]
+                    }
                     return [...old, ...res.data]
                   })
                 }
               }
           })
           .catch(res => console.log('erro no get'))
-
-          resize()
   }
 
   let pageLet = page

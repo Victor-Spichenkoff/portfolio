@@ -87,8 +87,9 @@ input:-webkit-autofill {
     border-radius: 7px;
 }
 
-.guest-btn:hover, .login-action:hover {
+.guest-btn:hover {
     transform: scale(1.05);
+    background-color: rgba(103, 9, 224, 0.568);
 }
 
 .extra-actions {

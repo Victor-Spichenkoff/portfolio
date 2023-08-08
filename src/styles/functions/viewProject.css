@@ -11,13 +11,15 @@ body {
 }
 
 .project-link {
-    background: linear-gradient(to bottom, black, black, #0c8ad3);
+    background: linear-gradient(to bottom, rgb(28, 182, 14), #04e27b, #0d9e2c);
+    /* background: linear-gradient(to bottom, black, black, #0c8ad3); */
     /* border-top: 2px #ffffff75 solid; */
     /* border-left: 2px #ffffff75 solid; */
     border-radius: 7px;
     padding: 10px;
-    color: skyblue;
+    color: white;
     font-size: 20px;
+    font-weight: 700;
     box-shadow: 5px 8px 15px black;
     margin-bottom: 30px;
 }
@@ -36,7 +38,8 @@ body {
     border-radius: 10px;
     /* border: gray solid 4px; */
     border:  0;
-    font-size: 17px;;
+    font-size: 17px;
+    overflow-x: hidden;
 }
 
 
@@ -145,6 +148,23 @@ abbr {
         aspect-ratio: 1;
     } 
 } */
+
+
+.description::-webkit-scrollbar {
+    height: 6px;
+}
+
+.description::-webkit-scrollbar-track {
+    background-color: rgb(228, 226, 226);
+    border-radius: 10px;
+    width: 95%;
+}
+
+.description::-webkit-scrollbar-thumb {
+    border-radius: 7px 7px 0px 0px;
+    width: 40px;
+    margin: 0 10px;
+}
 
 
 @media (max-width: 747px) {
