@@ -1,9 +1,8 @@
-import { verifyAcess } from '@/hooks/useUser'
+import { verifyAcess } from '@/hooks/UseUser'
 import Default from '../../components/templates/Default'
 import Fy from '@/components/functions/Fy'
 
-import { stringToHtml } from '@/hooks/useProject'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 
 export default function Home() {

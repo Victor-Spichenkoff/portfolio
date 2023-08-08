@@ -42,8 +42,8 @@ function setToken(user:User) {
 }
 
 
-function verifyAcess(other?:string, timer:number=0) {
-    const router = useRouter()
+function verifyAcess(router?:any, other:string='home', timer:number=0) {
+    // const router = useRouter()
     const user:any =  getStoragedUser()
 
     axios.post(`${baseUrl}/validateToken`, user)

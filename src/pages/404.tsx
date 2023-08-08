@@ -1,4 +1,4 @@
-import { verifyAcess } from '@/hooks/useUser'
+import { verifyAcess } from '@/hooks/UseUser'
 
 export default function NotFound() {
 

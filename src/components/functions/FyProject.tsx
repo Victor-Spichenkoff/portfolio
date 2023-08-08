@@ -21,7 +21,7 @@ export default function FyProject(props:FyProjectProps) {
     }
 
     return (
-        <Link href={`/viewProject?id=${props.project.id}`} >
+        <Link href={`/viewProject?id=${props.project.id}`}>
             <div className='project-on-fy' > {/*Click=redirecionar para a ver */}
 
                 <img src={imageUrl} 

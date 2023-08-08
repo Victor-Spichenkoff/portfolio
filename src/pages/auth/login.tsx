@@ -17,7 +17,7 @@ import { baseUrl, user_key } from '@/global'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Error from "@/components/templates/Error";
-import { getStoragedUser, setToken, guest } from '@/hooks/useUser'
+import { getStoragedUser, setToken, guest } from '@/hooks/UseUser'
 
 interface Propslogin{
     setShowLogin:any
@@ -89,7 +89,7 @@ export default function Login(props:Propslogin) {
                 </div>
             </div>
             <div className="extra-actions">
-                <p onClick={()=> props.setShowLogin(false)}>Don't have an account? Create here</p>
+                <p onClick={()=> props.setShowLogin(false)}>Don&apos;t have an account? Create here</p>
                 <Link href="/auth/forgot" >Forgot Password?</Link>
             </div>
         </div>

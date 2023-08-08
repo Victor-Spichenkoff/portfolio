@@ -1,4 +1,4 @@
-import { getStoragedUser, setToken, guest } from '@/hooks/useUser'
+import { getStoragedUser, setToken, guest } from '@/hooks/UseUser'
 import axios from 'axios'
 import { baseUrl } from '@/global'
 import { useEffect, useState } from 'react'
