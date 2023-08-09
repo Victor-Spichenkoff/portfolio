@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import Jodit from 'jodit-react'
-import { verifyAcess } from '@/hooks/UseUser'
 
 interface PropsEditor {
     setDescription?:any
