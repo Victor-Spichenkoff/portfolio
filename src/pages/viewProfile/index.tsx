@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCopy } from "@fortawesome/free-solid-svg-icons"
 
 
-export default function viewProfile() {
+export default function ViewProfile() {
     verifyAcess()
     const router = useRouter()
     
@@ -28,7 +28,7 @@ export default function viewProfile() {
 
     function renderProjects() {
         return userAndProjects.projets.map((project:any ) => {
-            return <ProfileProject project={project} redirectFunction={redirect}></ProfileProject>
+            return <ProfileProject project={project} redirectFunction={redirect}key={Math.random()*Math.random()}></ProfileProject>
         }
         )
     }
