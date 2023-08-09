@@ -17,7 +17,7 @@ import { baseUrl, user_key } from '@/global'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Error from "@/components/templates/Error";
-import { getStoragedUser, setToken, guest } from '@/hooks/UseUser'
+import { getStoragedUser, setToken, guest } from '@/hooks/useUser'
 
 interface Propslogin{
     setShowLogin:any

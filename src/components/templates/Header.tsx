@@ -1,5 +1,5 @@
 // import s from '@/styles/template/header.module.css'
-import { clearStoragedUser, getStoragedUser, guest } from '@/hooks/UseUser'
+import { clearStoragedUser, getStoragedUser, guest } from '@/hooks/useUser'
 import { useState } from 'react'
 const imgUrl = 'https://cdn-icons-png.flaticon.com/512/93/93643.png'
 import Link from 'next/link'

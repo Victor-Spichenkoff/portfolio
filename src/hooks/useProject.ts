@@ -2,7 +2,7 @@ import { baseUrl, project_key } from '@/global'
 import axios from 'axios'
 import parse from 'html-react-parser'
 import { useRouter, withRouter } from 'next/router'
-import { getStoragedUser } from './UseUser'
+import { getStoragedUser } from './useUser'
 
 
 

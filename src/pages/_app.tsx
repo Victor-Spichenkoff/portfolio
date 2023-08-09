@@ -9,7 +9,7 @@ import '@/styles/functions/viewProject.css'
 import '@/styles/functions/profile.css'
 
 import type { AppProps } from 'next/app'
-import { getStoragedUser, setToken } from '@/hooks/UseUser'
+import { getStoragedUser, setToken } from '@/hooks/useUser'
 
 
 

@@ -7,7 +7,7 @@ import { baseUrl } from '@/global'
 import Header from '@/components/templates/Header'
 import { stringToHtml } from '@/hooks/useProject'
 import Error from '@/components/templates/Error'
-import { verifyAcess } from '@/hooks/UseUser';
+import { verifyAcess } from '@/hooks/useUser';
 const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: false })
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

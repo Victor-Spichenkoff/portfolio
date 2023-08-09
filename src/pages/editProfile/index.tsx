@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: false })
 import Header from '@/components/templates/Header';
 import Button from '@/components/templates/ButtonEdition';
-import { getStoragedUser, setStoragedUser } from '@/hooks/UseUser';
+import { getStoragedUser, setStoragedUser } from '@/hooks/useUser';
 import Link from 'next/link';
 import Error from '@/components/templates/Error';
 import { baseUrl, user_key } from '@/global';
-import { verifyAcess } from '@/hooks/UseUser';
+import { verifyAcess } from '@/hooks/useUser';
 import axios from 'axios';
 
 

@@ -1,6 +1,6 @@
 import { baseUrl } from "@/global";
 import axios from "axios";
-import { getStoragedUser } from "./UseUser";
+import { getStoragedUser } from "./useUser";
 
 let stop:boolean = false
 let lastPage = -1

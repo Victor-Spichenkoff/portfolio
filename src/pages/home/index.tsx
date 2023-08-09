@@ -1,4 +1,4 @@
-import { verifyAcess } from '@/hooks/UseUser'
+import { verifyAcess } from '@/hooks/useUser'
 import Default from '../../components/templates/Default'
 import Fy from '@/components/functions/Fy'
 

@@ -3,7 +3,7 @@ import Header from "./Header"
 import SideMenu from './SideMenu'
 import Footer from './Footer'
 import Content from './Content'
-import { guest } from "@/hooks/UseUser"
+import { guest } from "@/hooks/useUser"
 
 interface PropsDefault{
     title:string

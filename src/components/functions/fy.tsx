@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import FyProject from "./FyProject"
 import { getProjects } from "@/hooks/useFy"
-import { getStoragedUser } from "@/hooks/UseUser"
+import { getStoragedUser } from "@/hooks/useUser"
 import axios from "axios"
 import { baseUrl } from "@/global"
 
