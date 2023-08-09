@@ -8,13 +8,13 @@ import { getStoragedUser, setStoragedUser } from '@/hooks/useUser';
 import Link from 'next/link';
 import Error from '@/components/templates/Error';
 import { baseUrl, user_key } from '@/global';
-import { verifyAcess } from '@/hooks/useUser';
+import { VerifyAcess } from '@/hooks/useUser';
 import axios from 'axios';
 
 
 
 export default function EditProfile() {
-    verifyAcess()
+    VerifyAcess()
 
     const router = useRouter()
     const user = getStoragedUser() ?? {}

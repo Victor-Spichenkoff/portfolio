@@ -7,7 +7,7 @@ import { baseUrl } from '@/global'
 import Header from '@/components/templates/Header'
 import { stringToHtml } from '@/hooks/useProject'
 import Error from '@/components/templates/Error'
-import { verifyAcess } from '@/hooks/useUser';
+import { VerifyAcess } from '@/hooks/useUser';
 const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: false })
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,7 @@ import { faCopy, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function ViewProfile() {
-    verifyAcess()
+    VerifyAcess()
 
     const router = useRouter()
     const id = router.query.id

@@ -3,7 +3,7 @@ import ProfileProject from "@/components/functions/ProfileProject"
 import { baseUrl } from "@/global"
 import axios from "axios"
 import { useState } from "react"
-import { getStoragedUser, verifyAcess } from "@/hooks/useUser"
+import { getStoragedUser, VerifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { redirect } from "next/dist/server/api-utils"
 import { stringToHtml } from "@/hooks/useProject"
@@ -12,7 +12,7 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons"
 
 
 export default function ViewProfile() {
-    verifyAcess()
+    VerifyAcess()
     const router = useRouter()
     
     const [showLoading, setShowLoading] = useState(true)

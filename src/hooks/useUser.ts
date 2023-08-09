@@ -42,7 +42,7 @@ function setToken(user:User) {
 }
 
 
-function verifyAcess(other:string='home', timer:number=0) {
+function VerifyAcess(other:string='home', timer:number=0) {
     const router = useRouter()
     const user:any =  getStoragedUser()
 
@@ -82,4 +82,4 @@ function clearStoragedUser() {
     localStorage.removeItem(user_key)
 }
 
-export { getStoragedUser, setToken, verifyAcess, guest, clearStoragedUser, setStoragedUser}
+export { getStoragedUser, setToken, VerifyAcess, guest, clearStoragedUser, setStoragedUser}
