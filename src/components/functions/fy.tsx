@@ -16,15 +16,15 @@ export default function Fy() {
 
     const loaderRef = useRef(null)
 
-    function createPage () {
-        getProjects(setProjects, page, projects)
+    // function createPage () {
+    //     getProjects(setProjects, page, projects)
 
-        return projects.map((project) => {
-            return (
-                <FyProject project={project}></FyProject>
-            )
-        })
-    }
+    //     return projects.map((project) => {
+    //         return (
+    //             <FyProject project={project}></FyProject>
+    //         )
+    //     })
+    // }
 
 
     // let constProjects = createPage()
