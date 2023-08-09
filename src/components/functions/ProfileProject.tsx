@@ -19,7 +19,7 @@ export default function ProfileProject(props: ProfileProjectProps) {
             props.redirectFunction(props.project)
         }}
         >
-            <img src={image} onError={(e)=>{
+            <img src={image} onError={(e:any)=>{
                 e.target.src = defaultImage
                 }}
                 alt="Project Image" 

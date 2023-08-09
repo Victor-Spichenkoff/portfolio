@@ -25,7 +25,7 @@ export default function FyProject(props:FyProjectProps) {
             <div className='project-on-fy' > {/*Click=redirecionar para a ver */}
 
                 <img src={imageUrl} 
-                    onError={(e)=>{
+                    onError={(e:any)=>{
                         e.target.src = defaultImage
                     }}
                     alt="Project Image" />  
