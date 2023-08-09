@@ -16,17 +16,6 @@ export default function Fy() {
 
     const loaderRef = useRef(null)
 
-    // function createPage () {
-    //     getProjects(setProjects, page, projects)
-
-    //     return projects.map((project) => {
-    //         return (
-    //             <FyProject project={project}></FyProject>
-    //         )
-    //     })
-    // }
-
-
     // let constProjects = createPage()
 
     // useEffect(()=>{
@@ -35,7 +24,7 @@ export default function Fy() {
     //     // getProjects(setProjects, page, projects, setShowLoading)
     // }, [page])
 
-  async function getProjectsHere (page?:number) {
+  async function getProjectsHere (page:number=0) {
       if(stop) return
       // let pageUse = page >= 0 ? page-1 : page
       const user = getStoragedUser()
