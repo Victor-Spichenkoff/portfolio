@@ -1,6 +1,6 @@
 import { VerifyAcess } from '@/hooks/useUser'
 import Default from '../../components/templates/Default'
-import Fy from '../../components/functions/Fy'
+import Fy from '../../components/functions/fy'
 
 import { useRouter } from 'next/router'
 
