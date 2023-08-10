@@ -1,8 +1,8 @@
-import { verifyAcess } from '@/hooks/useUser'
+import { VerifyAcess } from '@/hooks/useUser'
 
 export default function NotFound() {
 
-    verifyAcess('/home', 4000)
+    VerifyAcess('/home', 4000)
     return (
         <div className="not-exists-page">
             Page not exists
