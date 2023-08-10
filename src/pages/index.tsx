@@ -1,5 +1,5 @@
-import { verifyAcess } from '@/hooks/useUser'
+import { VerifyAcess } from '@/hooks/useUser'
 
 export default function Home() {
-    verifyAcess('/home')
+    VerifyAcess('/home')
 }
