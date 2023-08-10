@@ -16,12 +16,12 @@ export default function Register(props: PropsRegister) {
     const router = useRouter()
 
     function getInformations() {
-        const name = String(document.getElementById('user-name').value)
-        const contact = String(document.getElementById('user-contact').value??'')
-        const password = String(document.getElementById('user-password').value?? '')
-        const confirmPassword = String(document.getElementById('user-confirmPassword').value?? '')
+        const contact:any = (document.getElementById('user-contact')??'')
+        const name:any = (document.getElementById('user-name'))
+        const password:any = (document.getElementById('user-password')?? '')
+        const confirmPassword:any = (document.getElementById('user-confirm'))
 
-        return {name, contact, password, confirmPassword}
+        return {name: name.value, password: password.value, confirmPassword: confirmPassword.value, contact: contact.value}
     }
 
     function handleResponse(res:any) {

@@ -31,10 +31,10 @@ export default function Login(props:Propslogin) {
     const [showError, setShowError] = useState(false)
 
     function getInformations() {
-        const name = String(document.getElementById('user-name').value)
-        const password = String(document.getElementById('user-password').value?? '')
+        const name:any = (document.getElementById('user-name'))
+        const password:any = (document.getElementById('user-password')?? '')
 
-        return {name, password}
+        return {name: name.value, password: password.value}
     }
 
 
