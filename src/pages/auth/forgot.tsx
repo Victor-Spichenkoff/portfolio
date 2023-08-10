@@ -15,11 +15,11 @@ export default function Forgot() {
 
 
     function getInformations() {
-        const name = String(document.getElementById('user-name').value)
-        const password = String(document.getElementById('user-password').value?? '')
-        const confirmPassword = String(document.getElementById('user-confirm').value)
+        const name:any = (document.getElementById('user-name'))
+        const password:any = (document.getElementById('user-password')?? '')
+        const confirmPassword:any = (document.getElementById('user-confirm'))
 
-        return { name, password, confirmPassword }
+        return { name: name.value, password: password.value, confirmPassword: confirmPassword.value }
     }
 
 
