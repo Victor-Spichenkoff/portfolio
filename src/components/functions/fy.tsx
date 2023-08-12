@@ -9,22 +9,13 @@ let stop = false
 
 export default function Fy() {
 
-    const [projects, setProjects] = useState([{id:false, name:'', user:{}}])
+    const [projects, setProjects] = useState([{name:'', user:{}}])
     const [page, setPage] = useState(0)
     const [showLoading, setShowLoading] = useState(true)
     const [stop, setStop] = useState(false)
 
-    const loaderRef = useRef(null)
 
-    // let constProjects = createPage()
-
-    // useEffect(()=>{
-    //     console.log('useEffect')
-    //     getProjectsHere(page)
-    //     // getProjects(setProjects, page, projects, setShowLoading)
-    // }, [page])
-
-  async function getProjectsHere (page:number=0) {
+  async function getProjectsHere (page?:number) {
       if(stop) return
       // let pageUse = page >= 0 ? page-1 : page
       const user = getStoragedUser()
@@ -34,22 +25,19 @@ export default function Fy() {
             console.log(page, res.data)
               if(res.data.length==0)  {
                   setStop(true)
-                  console.log('Fim')
                   setShowLoading(false)
                   return 
               }
               else{
-                console.log(projects)
-                console.log(res.data)
+                // console.log(projects)
+                // console.log(res.data)
                 if(page==0) {
                   setProjects(res.data)
                 } else{
                   setProjects((old:any) => {
                     try{
                       if(old[page*4].id == res.data[0].id) return [...old]
-                    } catch(e) {
-                      return [...old, ...res.data]
-                    }
+                    } catch(e) {}
                     return [...old, ...res.data]
                   })
                 }
@@ -68,7 +56,7 @@ export default function Fy() {
                 getProjectsHere(old)
                 return old+1
               })
-              console.log('nhe')
+              // console.log('nhe')
             }
     
         })
@@ -91,7 +79,7 @@ export default function Fy() {
         <div className='fy'>
             {projects.map((project) => {
               return (
-                <FyProject project={project} key={Math.random()*Math.random()}></FyProject>
+                <FyProject project={project} ></FyProject>
               )
             })}
         </div>
@@ -100,7 +88,7 @@ export default function Fy() {
           <div id="sentinela">
             <img src="https://metodosupera.com.br/supera-quiz-soft-skills/src/images/loading.gif" alt='Loading...' />
           </div>
-        ) : (<div className="no-more-projects"><p>That&apos;s all</p></div>)}
+        ) : (<div className="no-more-projects"><p>That's all</p></div>)}
     </div>
     )
 }

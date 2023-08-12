@@ -15,9 +15,9 @@ import { faCopy, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 
-
 export default function ViewProfile() {
     VerifyAcess()
+
 
     const router = useRouter()
     const id = router.query.id

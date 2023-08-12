@@ -42,7 +42,7 @@ function setToken(user:User) {
 }
 
 
-function VerifyAcess(other:string='home', timer:number=0) {
+function VerifyAcess(other?:string, timer:number=0) {
     const router = useRouter()
     const user:any =  getStoragedUser()
 

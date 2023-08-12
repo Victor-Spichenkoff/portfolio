@@ -12,9 +12,9 @@ import { VerifyAcess } from '@/hooks/useUser';
 import axios from 'axios';
 
 
-
 export default function EditProfile() {
     VerifyAcess()
+
 
     const router = useRouter()
     const user = getStoragedUser() ?? {}

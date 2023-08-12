@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import ProfileProject from "@/components/functions/ProfileProject"
 import { baseUrl } from "@/global"
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getStoragedUser, VerifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import { redirect } from "next/dist/server/api-utils"
@@ -11,16 +11,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCopy } from "@fortawesome/free-solid-svg-icons"
 
 
+
 export default function ViewProfile() {
     VerifyAcess()
+
+
     const router = useRouter()
     
-    const [showLoading, setShowLoading] = useState(true)
     const [userAndProjects, setUserAndProjects] = useState<any>({projets:[]})
 
-    axios.get(`${baseUrl}/profile/${router.query.id}`)
-        .then(res => setUserAndProjects(res.data))
-        .catch(console.log)
+    useEffect(()=>{
+        axios.get(`${baseUrl}/profile/${router.query.id}`)
+            .then(res => setUserAndProjects(res.data))
+            .catch(console.log)
+    }, [])
 
 
     const bio = stringToHtml(String(userAndProjects.bio))

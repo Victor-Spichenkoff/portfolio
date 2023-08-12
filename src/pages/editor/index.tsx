@@ -11,9 +11,9 @@ import { project_key } from '@/global';
 import { VerifyAcess } from '@/hooks/useUser';
 
 
-
 export default function CreateProject() {
     VerifyAcess()
+    
 
     const router = useRouter()
     const project = getStoragedProject() ?? {}

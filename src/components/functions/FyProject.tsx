@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faThumbsUp } from "@fortawesome/free-solid-svg-icons"
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 
 interface FyProjectProps {
@@ -12,17 +13,23 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxYr
 
 export default function FyProject(props:FyProjectProps) {
     let imageUrl = props.project.imageUrl
-    if(!props.project.imageUrl) {
-        imageUrl = defaultImage
-    }
+    // const [imageUrl, setImageUrl] = useState(props.project.imageUrl)
+    // useEffect(()=>{
+    //     if(!props.project.imageUrl) {
+    //         setImageUrl(defaultImage)
+    //     }
+    // }, [])
+
+    if(!props.project.imageUrl)  imageUrl = defaultImage
 
     if(props.project.id == null) {
         return ''
     }
+    
 
     return (
         <Link href={`/viewProject?id=${props.project.id}`}>
-            <div className='project-on-fy' > {/*Click=redirecionar para a ver */}
+            <div className='project-on-fy' >
 
                 <img src={imageUrl} 
                     onError={(e:any)=>{

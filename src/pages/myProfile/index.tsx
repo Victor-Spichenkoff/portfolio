@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import ProfileProject from "@/components/functions/ProfileProject"
 import { baseUrl, project_key } from "@/global"
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { clearStoragedUser, getStoragedUser, VerifyAcess } from "@/hooks/useUser"
 import Header from "@/components/templates/Header"
 import Footer from "@/components/templates/Footer"
@@ -11,8 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDoorOpen, faCopy } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 
+
 export default function ViewProfile() {
     VerifyAcess()
+
 
 
     const router = useRouter()
@@ -20,9 +22,12 @@ export default function ViewProfile() {
     const [showLoading, setShowLoading] = useState(true)
     const [userAndProjects, setUserAndProjects] = useState<any>({projets:[]})
 
-    axios.get(`${baseUrl}/profile/${router.query.id}`)
-        .then(res => setUserAndProjects(res.data))
-        .catch(console.log)
+
+    useEffect(()=>{
+        axios.get(`${baseUrl}/profile/${router.query.id}`)
+            .then(res => setUserAndProjects(res.data))
+            .catch(console.log)
+    }, [])
 
 
     const bio = stringToHtml(String(userAndProjects.bio))
