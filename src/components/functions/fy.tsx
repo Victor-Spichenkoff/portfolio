@@ -79,7 +79,7 @@ export default function Fy() {
         <div className='fy'>
             {projects.map((project) => {
               return (
-                <FyProject project={project} ></FyProject>
+                <FyProject project={project} key={Math.random()*Math.random()}></FyProject>
               )
             })}
         </div>
