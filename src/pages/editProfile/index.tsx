@@ -35,6 +35,7 @@ export default function EditProfile() {
         setShowError(false)
     }
 
+
     useEffect(()=>{
         if(user.id) {
             rewriteuser()
@@ -108,7 +109,7 @@ export default function EditProfile() {
 
 
 
-    const title = user.name ?? router
+    const title = user.name ?? ''
 
 
     return (
