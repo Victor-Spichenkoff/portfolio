@@ -88,7 +88,7 @@ export default function Fy() {
           <div id="sentinela">
             <img src="https://metodosupera.com.br/supera-quiz-soft-skills/src/images/loading.gif" alt='Loading...' />
           </div>
-        ) : (<div className="no-more-projects"><p>That's all</p></div>)}
+        ) : (<div className="no-more-projects"><p>That&apos;s all</p></div>)}
     </div>
     )
 }
