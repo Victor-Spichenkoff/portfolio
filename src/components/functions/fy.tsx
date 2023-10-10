@@ -46,11 +46,12 @@ export default function Fy() {
           .catch(res => console.log('erro no get'))
   }
 
-  let pageLet = page
 
     useEffect(()=>{
+      // setInterval(()=>{
+
+
         let observer = new IntersectionObserver((entries)=>{
-  
             if(entries.some((entry) => entry.intersectionRect)) {
               setPage(old => {
                 getProjectsHere(old)
@@ -58,8 +59,16 @@ export default function Fy() {
               })
               // console.log('nhe')
             }
-    
+
+
         })
+
+        //extra
+        
+        //fim do extra
+
+        
+
         try{
           observer.observe(document.getElementById('sentinela'))
         } catch(e) {console.log('erro no observer')}
@@ -67,6 +76,7 @@ export default function Fy() {
         if(!showLoading) {
           return  observer.disconnect()
         }
+      // }, 1000)
     }, [])
 
     

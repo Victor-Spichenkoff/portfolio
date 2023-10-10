@@ -13,12 +13,9 @@ const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxYr
 
 export default function FyProject(props:FyProjectProps) {
     let imageUrl = props.project.imageUrl
-    // const [imageUrl, setImageUrl] = useState(props.project.imageUrl)
-    // useEffect(()=>{
-    //     if(!props.project.imageUrl) {
-    //         setImageUrl(defaultImage)
-    //     }
-    // }, [])
+    
+    let redirectProject = `/viewProject?id=${props.project.id}`
+    let redirectUser = `/viewProfile?id=${props.project.user.id}`
 
     if(!props.project.imageUrl)  imageUrl = defaultImage
 
@@ -26,9 +23,13 @@ export default function FyProject(props:FyProjectProps) {
         return ''
     }
     
+    if(props.project.name=='Infinite Scroll') {
+        redirectProject = ('/home')
+        redirectUser = ('/home')
+    }
 
     return (
-        <Link href={`/viewProject?id=${props.project.id}`}>
+        <Link href={redirectProject}>
             <div className='project-on-fy' >
 
                 <img src={imageUrl} 
@@ -48,7 +49,7 @@ export default function FyProject(props:FyProjectProps) {
                     />   </span>
                     <span>
                         <abbr title="View Profile">
-                        <Link href={`/viewProfile?id=${props.project.user.id}`}>
+                        <Link href={redirectUser}>
                             {props.project.user? props.project.user.name : ''}
                         </Link>
                         </abbr>

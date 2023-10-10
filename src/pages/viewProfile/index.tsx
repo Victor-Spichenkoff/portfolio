@@ -18,7 +18,7 @@ export default function ViewProfile() {
 
     const router = useRouter()
     
-    const [userAndProjects, setUserAndProjects] = useState<any>({projets:[]})
+    const [userAndProjects, setUserAndProjects] = useState<any>({projets:[{likes:0}]})
 
     useEffect(()=>{
         axios.get(`${baseUrl}/profile/${router.query.id}`)

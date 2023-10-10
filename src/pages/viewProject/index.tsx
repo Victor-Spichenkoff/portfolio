@@ -41,7 +41,6 @@ export default function ViewProfile() {
     })
 
 
-
     const description = stringToHtml(String(project.description))
 
     const likesConst = likes ?? project.likes

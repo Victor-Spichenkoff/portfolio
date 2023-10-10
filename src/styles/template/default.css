@@ -57,7 +57,7 @@
     align-items: center;
     padding: 0px 5px;
     margin:0px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     height: 35px;
@@ -145,6 +145,7 @@
     }
     100%{
         width:0px;
+        height: 0px;
     }
 }
 

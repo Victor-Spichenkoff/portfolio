@@ -12,6 +12,7 @@
     box-shadow: 0px 2px 7px black;
 
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
     font-style: oblique;
 }
 
@@ -37,6 +38,7 @@
     -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
     -webkit-text-fill-color: transparent;
     color: black;
+    text-shadow: 1px 1px 6px rgb(0, 0, 0, 0.2);
 }
 
 .header>i, .header > a {
@@ -99,11 +101,26 @@
 
 .login-guest {
     position: fixed;
-    right: 20px;
+    right: -5vw;
     color: white;
+    font-size: 3.2vw;
+    background-color: rgba(128, 128, 128, 0.541);
+    width: 17vw;
+    max-height: 30px;
+    opacity: 30%;
+    padding: 5px;
+    border-radius: 5px;
 }
 
+.login-guest:hover {
+    opacity: 100%;
+}
 
+@media (min-width: 550px) {
+    .login-guest {
+        right: 1vw;
+    }
+}
 
 
 .color1 {color: #140e1a;}

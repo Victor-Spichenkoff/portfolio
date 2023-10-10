@@ -19,7 +19,7 @@ export default function Register(props: PropsRegister) {
         const contact:any = (document.getElementById('user-contact')??'')
         const name:any = (document.getElementById('user-name'))
         const password:any = (document.getElementById('user-password')?? '')
-        const confirmPassword:any = (document.getElementById('user-confirm'))
+        const confirmPassword:any = (document.getElementById('user-confirmPassword'))
 
         return {name: name.value, password: password.value, confirmPassword: confirmPassword.value, contact: contact.value}
     }
@@ -94,7 +94,7 @@ export default function Register(props: PropsRegister) {
                 <input type="password"  placeholder="Password" id="user-password"/> <br />
                 <input type="password"  placeholder="Confirm your password" id="user-confirmPassword"/> <br />
                 <div className="div-login-actions">
-                    <button className="login-action" onClick={sendUser}>Create</button>
+                    <button className="login-action hoverScale" onClick={sendUser}>Create</button>
                     <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>
                 </div>
             </div>

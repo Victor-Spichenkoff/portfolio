@@ -42,6 +42,22 @@ function setToken(user:User) {
 }
 
 
+function guest() {
+    const user = getStoragedUser()
+    try{
+        
+        if(user.guest) {
+            return true
+        } else {
+            return false
+        }
+    } catch(e) {
+        return false
+    }
+}
+
+
+
 function VerifyAcess(other?:string, timer:number=0) {
     const router = useRouter()
     const user:any =  getStoragedUser()
@@ -57,25 +73,14 @@ function VerifyAcess(other?:string, timer:number=0) {
                     setTimeout(()=>{
                         router.push('/'+other)
                     }, timer)
-                } 
+                }
             }      
         })
+        // .catch(()=> {
+        //     router.push('/auth')
+        // })
 }
 
-
-function guest() {
-    const user = getStoragedUser()
-    try{
-        
-        if(user.guest) {
-            return true
-        } else {
-            return false
-        }
-    } catch(e) {
-        return false
-    }
-}
 
 
 function clearStoragedUser() {
