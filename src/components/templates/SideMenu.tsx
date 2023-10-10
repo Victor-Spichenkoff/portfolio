@@ -8,7 +8,7 @@ import { setStoragedProject } from '@/hooks/useProject'
 
 export default function SideMenu() {
     const [projects, setProjects] = useState([])
-
+    const [loading, setLoading] = useState(true)
 
 
 
@@ -27,12 +27,15 @@ export default function SideMenu() {
     function userProjects() {
         const user = getStoragedUser()
         axios.get(`${baseUrl}/project/${user.id}`)
-            .then(res => setProjects(res.data.projects.projets))
+            .then(res => {
+                setProjects(res.data.projects.projets)
+                setLoading(false)
+            })
             .catch()
     }
     useEffect(() => userProjects(), [])
     
-    const menu = projects[0] ? createSideMenu(projects) : <div className="loading-side"></div>
+    const menu = !loading ? createSideMenu(projects) : <div className="loading-side"></div>
 
     return(  
         <>
