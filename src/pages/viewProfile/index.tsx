@@ -13,7 +13,7 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons"
 
 
 export default function ViewProfile() {
-    VerifyAcess()
+    // VerifyAcess()
 
 
     const router = useRouter()
@@ -24,6 +24,12 @@ export default function ViewProfile() {
         axios.get(`${baseUrl}/profile/${router.query.id}`)
             .then(res => setUserAndProjects(res.data))
             .catch(console.log)
+
+        // setTimeout(() => {
+        //     axios.get(`${baseUrl}/profile/${router.query.id}`)
+        //     .then(res => setUserAndProjects(res.data))
+        //     .catch(console.log)
+        // }, 2000);
     }, [])
 
 

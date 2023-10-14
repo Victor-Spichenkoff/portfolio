@@ -100,6 +100,7 @@
     flex-wrap: wrap;
     margin:10px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .profile-project:hover {

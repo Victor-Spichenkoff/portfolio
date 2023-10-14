@@ -34,6 +34,7 @@
     width: 90px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .new-project-button:hover {

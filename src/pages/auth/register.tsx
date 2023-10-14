@@ -89,10 +89,10 @@ export default function Register(props: PropsRegister) {
             { showError ? <Error type={errorInfo.type} mensage={errorInfo.msg}></Error>: ''}
             <h2>Create Account</h2>
             <div   className="entry-form">
-                <input type="text" placeholder="Name" id="user-name"/> <br />
-                <input type="text" placeholder="How to contact you?" id="user-contact"/> <br />
-                <input type="password"  placeholder="Password" id="user-password"/> <br />
-                <input type="password"  placeholder="Confirm your password" id="user-confirmPassword"/> <br />
+                <input type="text" placeholder="Name" id="user-name" autocomplete="name"/> <br />
+                <input type="text" placeholder="How to contact you?" id="user-contact" autocomplete="email phone"/> <br />
+                <input type="password"  placeholder="Password" id="user-password" autocomplete="password"/> <br />
+                <input type="password"  placeholder="Confirm your password" id="user-confirmPassword" /> <br />
                 <div className="div-login-actions">
                     <button className="login-action hoverScale" onClick={sendUser}>Create</button>
                     <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>

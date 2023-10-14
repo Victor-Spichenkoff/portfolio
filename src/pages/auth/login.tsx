@@ -81,8 +81,8 @@ export default function Login(props:Propslogin) {
             { showError ? <Error type={errorInfo.type} mensage={errorInfo.msg}></Error>: ''}
             <h2>Login</h2>
             <div className="entry-form">
-                <input type="text" placeholder="Name" id='user-name'/> <br />
-                <input type="password"  placeholder="Password" id='user-password'/> <br />
+                <input type="text" placeholder="Name" id='user-name' autocomplete="name"/> <br />
+                <input type="password"  placeholder="Password" id='user-password' autocomplete="password"/> <br />
                 <div className="div-login-actions">
                     <button className="login-action hoverScale" onClick={makeLogin}>Login</button>
                     <button className="guest-btn" onClick={makeLoginGuest}>Login as Guest</button>

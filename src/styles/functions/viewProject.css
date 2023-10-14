@@ -27,7 +27,8 @@ body {
 
 
 .description {
-    background-color: rgb(228, 226, 226);
+    /* background-color: rgb(228, 226, 226); */
+    background-color: white;
     color: black;
     box-shadow: 7px 10px 10px black;
     /* box-shadow: 10px 17px 20px #0ffff8; */
@@ -40,6 +41,10 @@ body {
     border:  0;
     font-size: 17px;
     overflow-x: hidden;
+}
+
+.description a {
+    cursor: pointer !important;/*Por causa do inline*/
 }
 
 
