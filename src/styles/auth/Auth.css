@@ -3,7 +3,11 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - var(--header-height));
-    background: linear-gradient(to right, black, rgb(54, 54, 54), black)
+    background-image: linear-gradient(to right, black, rgb(54, 54, 54), black);
+
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center; */
 }
 
 .auth-area {
