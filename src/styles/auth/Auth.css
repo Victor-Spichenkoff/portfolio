@@ -3,26 +3,31 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - var(--header-height));
-    background-image: linear-gradient(to right, black, rgb(54, 54, 54), black);
+    /* background-image: linear-gradient(to right, black, rgb(54, 54, 54), black); */
+    /* background-image: url(https://png.pngtree.com/background/20230416/original/pngtree-website-geometric-figures-dark-background-picture-image_2443562.jpg); */
 
-    /* background-repeat: no-repeat;
+    background-color: black;
+    background-image: url(../../imgs/tinywow_remove_watermark_photo_41039656.png);
+
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: left center; */
+    background-position: left center;
+
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.541);
 }
 
 .auth-area {
     background: rgb(9, 51, 105);
-    /* display: flex;
-    justify-content: center; */
     flex-wrap: wrap;
     width: 50vw;
-    /* height: 70vh; */
     border-radius: 10px;
+    box-shadow: 0 0 10px rgb(6, 66, 90);
 }
 
 .auth-area > h2 {
     margin: 40px 20px 0px 40px;
     font-size: 27px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219);
     height: 40px;
     color: rgb(0, 0, 0);
     background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(172, 172, 172));
@@ -82,6 +87,9 @@ input:-webkit-autofill {
     border: none;
     border-radius: 7px;
 }
+.login-action:hover {
+    cursor: pointer;
+}
 
 .guest-btn {
     color: white;
@@ -94,15 +102,19 @@ input:-webkit-autofill {
 .guest-btn:hover {
     transform: scale(1.05);
     background-color: rgba(103, 9, 224, 0.568);
+    cursor: pointer;
 }
 
 .extra-actions {
     margin: 30px 40px;
-    color: skyblue;
+    /* color: skyblue; */
+    color: rgb(179, 202, 212);
 }
 
-.extra-actions:hover {
+
+.extra-actions > p:hover, .extra-actions a:hover {
     cursor: pointer;
+    color: rgb(73, 189, 235);
 }
 
 @media (max-width: 648px) {
