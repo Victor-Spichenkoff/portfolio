@@ -77,6 +77,8 @@
     height:100%;
     overflow-y: hidden;
     overflow-x: hidden;
+
+    background-color: rgba(43, 42, 42, 0.973);
 }
 
 .default {
@@ -88,7 +90,6 @@
         "header"
         "content"
         "content";
-    background-color: rgba(43, 42, 42, 0.973);
 } 
 
 .showMenu{

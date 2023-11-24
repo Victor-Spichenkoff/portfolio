@@ -46,11 +46,7 @@
 
 
 .project-on-fy {
-    background-color: rgba(65, 65, 65, 0.192);
-
-
-    /* background-color: #c0c0c0; */
-    background-color: #011318;
+    background-color: rgba(1, 27, 49, 0.986);
     color: rgb(255, 255, 255);
 
     border-radius: 15px;
@@ -76,7 +72,7 @@
     transform: scale(1.05);
     backdrop-filter: none;
     /* background-color: rgb(56, 56, 56); */
-    background-color: #01222b;
+    background-color: rgba(1, 34, 63, 0.986);
 }
 
 
