@@ -103,7 +103,7 @@ export default function CreateProject() {
                 <button className='btn-1 delete' onClick={()=> deleteProject(project.id, handleResponse)}>Delete</button>
                  ): ''}
 
-            <button onClick={() => send(router, handleResponse, name, link, imageUrl, description, project.id, 817)} className='btn-1 save'>Save</button>
+            <button onClick={() => send(router, handleResponse, name, link, imageUrl, description, project.id)} className='btn-1 save'>Save</button>
             {/* 100 = likes, tirar depois */}
         </div>
     </div>

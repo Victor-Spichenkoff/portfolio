@@ -2,7 +2,7 @@
 <h2>A full featured site to help you divugate your projects</h2>
 <hr>
 
-<a href=""><strong>Visit Here</strong></a>
+<a href="https://victor-spichenkoff.github.io/portfolio/"><strong>Visit Here</strong></a>
 
 <p>Site created to connect companies and young students</p>
 <p>Features:</p>
@@ -10,6 +10,7 @@
     <li><strong>Discovery</strong> section, find popular projects</li>
     <li><strong>Infinite scroll</strong> on the home screen (purposely increased for demonstration purposes)</li>
     <li>Create your own account</li>
+    <li>Error tratament, mensajes (success and error), security</li>
     <li>Disclose your projects</li>
     <li>Give and receive <strong>likes</strong></li>
     <li>No time? Sign in as <strong>guest</strong></li>
@@ -45,7 +46,7 @@
 <h1>Portfolio</h1>
 <h2>Um site completo para ajudar você a divulgar seus projetos</h2>
 
-<a href=""><strong>Visite aqui</strong></a>
+<a href="https://victor-spichenkoff.github.io/portfolio/"><strong>Visite aqui</strong></a>
 
 <p>Site criado para realizar a conexão entre empresas e jovens estudantes</p>
 <p>Recursos:</p>
@@ -53,6 +54,7 @@
     <li>Seção <strong>Discovery</strong>, encontre projetos populares</li>
     <li><strong>Infinite scroll</strong> na tela inicial(propositalmente aumentado para demostração)</li>
     <li>Crie sua própria conta</li>
+    <li>Tratamento de erros, mensagens (sucesso e erro), segurança</li>
     <li>Divulgue seus projetos</li>
     <li>Dê e receba <strong>likes</strong></li>
     <li>Sem tempo? Entre como <strong>guest</strong></li>
