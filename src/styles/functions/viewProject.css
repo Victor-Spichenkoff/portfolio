@@ -5,12 +5,15 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
+    min-height: calc(100vh - 50px);
+    
     color: white;
     align-items: space-between;
+    background-color: rgba(20, 20, 20, 0.993);
 }
 
 .project-link {
+    margin-top: 50px;
     background: linear-gradient(to bottom, rgb(28, 182, 14), #04e27b, #0d9e2c);
     /* background: linear-gradient(to bottom, black, black, #0c8ad3); */
     /* border-top: 2px #ffffff75 solid; */

@@ -78,7 +78,7 @@
     overflow-y: hidden;
     overflow-x: hidden;
 
-    background-color: rgba(43, 42, 42, 0.973);
+    background-color: var(--bg-main-color);
 }
 
 .default {
@@ -164,13 +164,13 @@
 
 @media (max-width: 747px) {
     #side-menu {
-        width: 90vw;
+        width: 68vw;/*era 90, iphone era muito garnde*/
         z-index: 10;
     }
 
     @keyframes hiddeMenu {
         0%{
-            width:90vw;
+            width:68vw;
             height: 100%;
         }
         80%{
@@ -187,7 +187,7 @@
             height: 0px;
         }
         40%{
-            width:90vw
+            width:68vw
         }
         100%{
             height: 100%;

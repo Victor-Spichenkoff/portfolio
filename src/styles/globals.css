@@ -1,6 +1,8 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+/*
+boa imagem para o  fundo https://external-preview.redd.it/acza-w6EHqHrZVnm3HTOIVKEkl5VOXoXWE6PpK1aoRY.jpg?auto=webp&s=be22b7b3bf755c34933036f7e3b3b6d23ff89fba*/
 * {
   font-family: sans-serif;
 }
@@ -23,9 +25,12 @@ body, html, window {
 :root {
   --bg-dark-blue: #0e3d62;
   --bg-blue: 087bba;
-  --bg-main-color: rgba(32, 32, 32, 0.973);
+  --bg-main-color: rgba(20, 20, 20, 0.993);
+  /* --bg-main-color: rgba(32, 32, 32, 0.973); */
   --header-height: 50px;
   --size-0: 747px;
+  --bg-url: url(https://external-preview.redd.it/acza-w6EHqHrZVnm3HTOIVKEkl5VOXoXWE6PpK1aoRY.jpg?auto=webp&s=be22b7b3bf755c34933036f7e3b3b6d23ff89fba);
+  --bg-url-2: url(https://www.hdwallpapers.in/download/blue_triangles_shapes_black_background_4k_hd_abstract-HD.jpg);
 } 
 
 a{
@@ -130,9 +135,19 @@ hr {
   height: 40vw;
   border: 40px #0fbbff solid;
   border-top: 40px #0ffff8 solid;
+  background-color: var(--bg-main-color);
 }
 
-
+/*imagem de background geral*/
+.content, .profile, #view-project-page {
+  background-image: var(--bg-url);
+  background-size: cover;
+  background-position: center left;
+  background-attachment: fixed;
+}
+.profile, #view-project-page{
+  background-image: var(--bg-url-2);
+}
 
 @media (max-width: 747px) {
 
@@ -148,6 +163,10 @@ hr {
       background-color: #087bba;
       border-radius: 20px 0px 0px 20px;
       border: none;
+  }
+
+  .profile, #view-project-page {
+    background-image: none;
   }
 }
 

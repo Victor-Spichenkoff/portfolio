@@ -4,11 +4,14 @@
 .color4 {color: #08c8ff;}
 .color5 {color: #0ffff8;}
 
+
+
 .profile {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     overflow-y: scroll;
+    background-color: var(--bg-main-color);
 
 }
 
@@ -66,7 +69,7 @@
 
 .edit-profile > button {
     /* background-color: #089c0881; */
-    background: linear-gradient(135deg, #03810381, #3ebb3e81);
+    background: linear-gradient(135deg, #038103, rgb(62, 187, 62));
     font-size: 1.14em;
 }
 
@@ -84,10 +87,8 @@
 
 
 .profile-project {
-    /* background-color: rgba(7, 155, 240, 0.192); */
-    /* color: whitesmoke; */
-    /* background-color: #b6b6b6; */
-    background-color: #011318;
+    /* background-color: #011318; */
+    background-color: rgba(1, 27, 49, 0.986);
     color: rgb(255, 255, 255);
     
     box-shadow: 4px 9px 7px black;

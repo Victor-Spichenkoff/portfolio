@@ -68,7 +68,7 @@
     font-family: monospace;
 }
 
-.project-on-fy:hover {
+.project-on-fy:hover, .profile-project:hover {
     transform: scale(1.05);
     backdrop-filter: none;
     /* background-color: rgb(56, 56, 56); */
@@ -95,6 +95,12 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.likes-user abbr:hover {
+    color: rgb(167, 163, 163);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.288);
+}
+
 
 
 #sentinela {
