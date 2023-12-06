@@ -40,11 +40,11 @@ function cancel() {
     // router.push('/home')
 }
 
-async function send(router:any, handleResponse:any, name:string, link:string, imageUrl:string, description:string, id?:string) {
+async function send(router:any, handleResponse:any, name:string, link:string, imageUrl:string, description:string, id?:string, likes:number=0) {
     console.log('Entrou')
     try{
         const user = getStoragedUser() || ''
-        const project = {name, link, imageUrl, description, user_id:user.id}
+        const project = {name, link, imageUrl, description, user_id:user.id, likes}
         if(id) {
             axios.post(`${baseUrl}/project/${id}`, project)
                 .then(res=> handleResponse(res, 'Editing...'))  
