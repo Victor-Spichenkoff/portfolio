@@ -20,11 +20,16 @@ body {
     /* border-left: 2px #ffffff75 solid; */
     border-radius: 7px;
     padding: 10px;
+    max-height: 50px;
     color: white;
     font-size: 20px;
     font-weight: 700;
     box-shadow: 5px 8px 15px black;
     margin-bottom: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -66,6 +71,7 @@ body {
     width: 90vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap-reverse;
     bottom: 30px;
     float: bottom;
@@ -81,7 +87,7 @@ body {
 }
 
 
-.view-contact {
+/* .view-contact {
     color: white;
     width: fit-content;
     padding: 0 40px 0 0;
@@ -89,7 +95,7 @@ body {
     position: relative;
     font-size: 17px;
     display: inline;
-}
+} */
 
 
 .view-copy {
@@ -178,5 +184,9 @@ abbr {
 @media (max-width: 747px) {
     #project-loading {
         height: 90vh;
+    }
+
+    .project-link {
+        padding: 5px;
     }
 }
