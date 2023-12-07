@@ -21,6 +21,7 @@ config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
   let user = getStoragedUser()
+
   if (user) {
     setToken(user)
   }
