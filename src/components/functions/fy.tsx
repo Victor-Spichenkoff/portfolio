@@ -7,6 +7,8 @@ import { baseUrl } from "@/global"
 
 let stop = false
 
+
+
 export default function Fy() {
 
     const [projects, setProjects] = useState([{name:'', user:{}}])
@@ -19,6 +21,14 @@ export default function Fy() {
       if(stop) return
       // let pageUse = page >= 0 ? page-1 : page
       const user = getStoragedUser()
+
+    function verifySentinelaExit() {
+      const sentinela = document.getElementById('sentinela')
+      const currentHeight = 0
+      console.log(currentHeight)
+    }
+
+    verifySentinelaExit()
 
       axios.get(`${baseUrl}/project/fy/${user.id}?page=${page}`)
           .then(res => {
@@ -52,22 +62,15 @@ export default function Fy() {
 
 
         let observer = new IntersectionObserver((entries)=>{
-            if(entries.some((entry) => entry.intersectionRect)) {
-              setPage(old => {
-                getProjectsHere(old)
-                return old+1
-              })
-              // console.log('nhe')
-            }
-
-
+          if(entries.some((entry) => entry.intersectionRect)) {
+            setPage(old => {
+              getProjectsHere(old)
+              return old+1
+            })
+            console.log('nhe')
+          }
         })
 
-        //extra
-        
-        //fim do extra
-
-        
 
         try{
           observer.observe(document.getElementById('sentinela'))

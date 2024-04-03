@@ -29,8 +29,10 @@ body, html, window {
   /* --bg-main-color: rgba(32, 32, 32, 0.973); */
   --header-height: 50px;
   --size-0: 747px;
-  --bg-url: url(https://external-preview.redd.it/acza-w6EHqHrZVnm3HTOIVKEkl5VOXoXWE6PpK1aoRY.jpg?auto=webp&s=be22b7b3bf755c34933036f7e3b3b6d23ff89fba);
-  --bg-url-2: url(https://www.hdwallpapers.in/download/blue_triangles_shapes_black_background_4k_hd_abstract-HD.jpg);
+  /* --bg-url: url(https://external-preview.redd.it/acza-w6EHqHrZVnm3HTOIVKEkl5VOXoXWE6PpK1aoRY.jpg?auto=webp&s=be22b7b3bf755c34933036f7e3b3b6d23ff89fba); */
+  --bg-url: url(../imgs/bg-main.webp);
+  --bg-url-2: url(../imgs/bg-2.jpg);
+  /* --bg-url-2: url(https://www.hdwallpapers.in/download/blue_triangles_shapes_black_background_4k_hd_abstract-HD.jpg); */
 } 
 
 a{
