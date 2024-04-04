@@ -9,13 +9,15 @@ import { redirect } from "next/dist/server/api-utils"
 import { stringToHtml } from "@/hooks/useProject"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCopy } from "@fortawesome/free-solid-svg-icons"
+import ServerError from "@/components/templates/serverError"
 
 
 export default function ViewProfile() {
     // VerifyAcess()
     const router = useRouter()
 
-    
+
+    const [loadError, setLoadError] = useState(false)
     const [urlId, setUrlId] = useState<unknown>(undefined)
 
     useEffect(()=> setUrlId(router.query.id), [])
@@ -30,7 +32,7 @@ export default function ViewProfile() {
     function getInfosProject(id?:unknown) {
         axios.get(`${baseUrl}/profile/${id ?? urlId}`)
             .then(res => setUserAndProjects(res.data))
-            .catch(console.log)
+            .catch(()=> setLoadError(true))
     }
     
 
@@ -68,6 +70,12 @@ export default function ViewProfile() {
         router.push(`/viewProject?id=${project.id}`)
     }
 
+
+    if(loadError) {
+        return (
+            <ServerError />
+        )
+    }
 
     if(!userAndProjects.name) {
         return <div id="project-loading">
