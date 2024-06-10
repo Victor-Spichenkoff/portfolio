@@ -20,9 +20,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 config.autoAddCss = false; 
 
-
-const serverMaintenanceUrl = 'https://localhost:2009'
-// const serverMaintenanceUrl = 'https://server-maintenance-ssu7.onrender.com'
+const isProd = process.env.NODE_ENV == "production"
+const serverMaintenanceUrl = isProd ? 'https://server-maintenance-ssu7.onrender.com' : 'http://localhost:2009'
 
 export default function App({ Component, pageProps }: AppProps) {
   let user = getStoragedUser()
@@ -34,9 +33,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   async function MakeAllFirstRequest() {
-    await axios(`${serverMaintenanceUrl}/forceAllOnce`)
     const ip = await getIp()
     axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
+    //deixar esse no final, o mais lento
+    await axios(`${serverMaintenanceUrl}/forceAllOnce`)
   }
 
   useEffect(()=> {
