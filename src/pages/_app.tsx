@@ -8,7 +8,7 @@ import '@/styles/functions/fy.css'
 import '@/styles/functions/viewProject.css'
 import '@/styles/functions/profile.css'
 
-import type { AppProps } from 'next/app'
+import type { AppContext, AppProps } from 'next/app'
 import { getStoragedUser, setToken } from '@/hooks/useUser'
 
 
@@ -25,7 +25,12 @@ const serverMaintenanceUrl = isProd ? 'https://server-maintenance-ssu7.onrender.
 const localApiUrl = isProd ? '/portfolio' : ''
 
 
-export default function App({ Component, pageProps }: AppProps) {
+interface NewAppProps extends AppProps {
+  ip?: string
+}
+
+export default function App({ Component, pageProps, ip }: NewAppProps) {
+// export default function App({ Component, pageProps, ip }: AppProps) {
   let user = getStoragedUser()
 
   async function getIp() {
@@ -35,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   async function MakeAllFirstRequest() {
-    const ip = await getIp()
+    // const ip = await getIp()
     axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
     //deixar esse no final, o mais lento
     await axios(`${serverMaintenanceUrl}/forceAllOnce`)
@@ -52,3 +57,19 @@ export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
   // return <Home/>
 }
+
+
+
+
+App.getInitialProps = async ({ ctx }: AppContext) => {
+  const { req } = ctx;
+  let ip = null;
+  if (req) {
+    ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    // Tratamento especial para IPv6 localhost (::1)
+    if (ip === '::1') {
+      ip = '127.0.0.1';
+    }
+  }
+  return { ip };
+};
