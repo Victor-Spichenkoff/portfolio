@@ -22,12 +22,14 @@ config.autoAddCss = false;
 
 const isProd = process.env.NODE_ENV == "production"
 const serverMaintenanceUrl = isProd ? 'https://server-maintenance-ssu7.onrender.com' : 'http://localhost:2009'
+const localApiUrl = isProd ? '/portfolio' : ''
+
 
 export default function App({ Component, pageProps }: AppProps) {
   let user = getStoragedUser()
 
   async function getIp() {
-    const ip = await (await axios("/api/getIp")).data.ip
+    const ip = await (await axios(`${localApiUrl}/api/getIp`)).data.ip
     return ip
   }
 
