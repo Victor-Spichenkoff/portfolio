@@ -71,5 +71,6 @@ App.getInitialProps = async ({ ctx }: AppContext) => {
       ip = '127.0.0.1';
     }
   }
+  if(!ip) return { ip: 'Vazio' }
   return { ip };
 };
