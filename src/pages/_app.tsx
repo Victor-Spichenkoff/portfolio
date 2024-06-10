@@ -21,7 +21,8 @@ import axios from 'axios'
 config.autoAddCss = false; 
 
 
-const serverMaintenanceUrl = 'https://server-maintenance-ssu7.onrender.com'
+const serverMaintenanceUrl = 'http://localhost:2009'
+// const serverMaintenanceUrl = 'https://server-maintenance-ssu7.onrender.com'
 
 export default function App({ Component, pageProps }: AppProps) {
   let user = getStoragedUser()
