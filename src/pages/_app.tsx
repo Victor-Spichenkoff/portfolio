@@ -26,9 +26,16 @@ const serverMaintenanceUrl = 'https://server-maintenance-ssu7.onrender.com'
 export default function App({ Component, pageProps }: AppProps) {
   let user = getStoragedUser()
 
+  async function getIp() {
+    const ip = await (await axios("/api/getIp")).data.ip
+    return ip
+  }
+
+
   async function MakeAllFirstRequest() {
-    console.log('Tudo foi carregado')
     await axios(`${serverMaintenanceUrl}/forceAllOnce`)
+    const ip = await getIp()
+    axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
   }
 
   useEffect(()=> {
