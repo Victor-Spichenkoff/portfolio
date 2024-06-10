@@ -41,7 +41,7 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 
   async function MakeAllFirstRequest() {
     // const ip = await getIp()
-    axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
+    if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
     //deixar esse no final, o mais lento
     await axios(`${serverMaintenanceUrl}/forceAllOnce`)
   }
@@ -61,16 +61,16 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 
 
 
-App.getInitialProps = async ({ ctx }: AppContext) => {
-  const { req } = ctx;
-  let ip = null;
-  if (req) {
-    ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    // Tratamento especial para IPv6 localhost (::1)
-    if (ip === '::1') {
-      ip = '127.0.0.1';
-    }
-  }
-  if(!ip) return { ip: 'Vazio' }
-  return { ip };
-};
+// App.getInitialProps = async ({ ctx }: AppContext) => {
+//   const { req } = ctx;
+//   let ip = null;
+//   if (req) {
+//     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+//     // Tratamento especial para IPv6 localhost (::1)
+//     if (ip === '::1') {
+//       ip = '127.0.0.1';
+//     }
+//   }
+//   if(!ip) return { ip: 'Vazio' }
+//   return { ip };
+// };
