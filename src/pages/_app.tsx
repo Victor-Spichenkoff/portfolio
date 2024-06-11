@@ -34,9 +34,15 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
   let user = getStoragedUser()
 
   async function getIp () {
-    const res = await axios('https://api.ipify.org?format=json')
-    console.log(res.data)
-    return res.data.ip
+    try{
+      const s = isProd ? 's' : ''
+      const res = await axios(`http${s}://ip-api.com/json/`)
+      console.log(`${res.data.query} -> ${res.data.city}`)
+      return `${res.data.query} -> ${res.data.city}`
+    } catch (e) {
+        console.log('Erro ao pegar o ip:')
+        console.log(e)
+    }
   }
 
 
