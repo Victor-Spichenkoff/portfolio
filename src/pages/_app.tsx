@@ -35,10 +35,9 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 
   async function getIp () {
     try{
-      const s = isProd ? 's' : ''
-      const res = await axios(`http${s}://ip-api.com/json/`)
-      console.log(`${res.data.query} -> ${res.data.city}`)
-      return `${res.data.query} -> ${res.data.city}`
+      const res = await axios.get('https://ipapi.co/json/')
+      console.log(`${res.data.ip} -> ${res.data.city}`)
+      return `${res.data.ip}->${res.data.city}`
     } catch (e) {
         console.log('Erro ao pegar o ip:')
         console.log(e)
@@ -49,8 +48,13 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
   async function MakeAllFirstRequest() {
     //deixar esse no final, o mais lento
     const ip = await getIp()
-    if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
-    await axios(`${serverMaintenanceUrl}/forceAllOnce`)
+    try {
+      if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
+      await axios(`${serverMaintenanceUrl}/forceAllOnce`)
+    } catch(E) {
+      console.log('Erro nos Make All Request')
+      console.log(E)
+    }
   }
 
   useEffect(()=> {
