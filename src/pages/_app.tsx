@@ -33,14 +33,21 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 // export default function App({ Component, pageProps, ip }: AppProps) {
   let user = getStoragedUser()
 
+  async function getIp () {
+    const res = await axios('https://api.ipify.org?format=json')
+    console.log(res.data)
+    return res.data.ip
+  }
+
 
   async function MakeAllFirstRequest() {
     //deixar esse no final, o mais lento
+    const ip = await getIp()
+    if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
     await axios(`${serverMaintenanceUrl}/forceAllOnce`)
   }
 
   useEffect(()=> {
-    if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
     MakeAllFirstRequest()
   }, [])
 
@@ -55,16 +62,16 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 
 
 
-App.getInitialProps = async ({ ctx }: AppContext) => {
-  const { req } = ctx;
-  let ip = null;
-  if (req) {
-    ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    // Tratamento especial para IPv6 localhost (::1)
-    if (ip === '::1') {
-      ip = '127.0.0.1';
-    }
-  }
-  if(!ip) return { ip: 'Vazio' }
-  return { ip };
-};
+// App.getInitialProps = async ({ ctx }: AppContext) => {
+//   const { req } = ctx;
+//   let ip = null;
+//   if (req) {
+//     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+//     // Tratamento especial para IPv6 localhost (::1)
+//     if (ip === '::1') {
+//       ip = '127.0.0.1';
+//     }
+//   }
+//   if(!ip) return { ip: 'Vazio' }
+//   return { ip };
+// };
