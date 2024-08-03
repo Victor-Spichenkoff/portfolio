@@ -13,6 +13,11 @@
     /* margin-top: 60px; */
 }
 
+#limiter-fy {
+    max-width: 1200px;
+    margin: auto;
+}
+
 .fy{
     /* display: grid; 
     grid-template-columns: repeat(3, 1fr); */

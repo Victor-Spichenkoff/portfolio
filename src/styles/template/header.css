@@ -104,12 +104,14 @@ header h1 {
 
 .login-guest {
     position: fixed;
+    text-align: center;
     right: -5vw;
     color: white;
-    font-size: 3.2vw;
+    font-size: 32px;
     background-color: rgba(128, 128, 128, 0.541);
-    width: 17vw;
-    max-height: 30px;
+    /* width: 17vw; */
+    max-height: 50px;
+    padding: 10px 20px;
     opacity: 30%;
     padding: 5px;
     border-radius: 5px;
@@ -118,6 +120,13 @@ header h1 {
 .login-guest:hover {
     opacity: 100%;
 }
+
+@media (max-width: 590px) {
+    .login-guest {
+        font-size: medium;
+    }
+}
+
 
 @media (min-width: 550px) {
     .login-guest {
