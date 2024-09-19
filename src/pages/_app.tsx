@@ -13,12 +13,13 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { serverMaintenanceUrl } from '@/global'
 
 
 config.autoAddCss = false; 
 
 const isProd = process.env.NODE_ENV == "production"
-const serverMaintenanceUrl = isProd ? 'https://server-maintenance-ssu7.onrender.com' : 'http://localhost:2009'
+
 const localApiUrl = isProd ? '/portfolio' : ''
 
 
@@ -33,7 +34,7 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
   async function getIp () {
     try{
       const res = await axios.get('https://ipapi.co/json/')
-      return `${res.data.ip} -> ${res.data.city}`
+      return `[PORTFOLIO] ${res.data.ip} -> ${res.data.city}, ${res.data.country_name}`
     } catch (e) {
         console.log('Erro ao pegar o ip:')
         console.log(e)
