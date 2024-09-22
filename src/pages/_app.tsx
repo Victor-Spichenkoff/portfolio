@@ -34,9 +34,6 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
   async function getIp () {
     try{
       const res = await axios.get('https://ipapi.co/json/')
-      if(res.data.ip == "179.34.95.149")
-      //   return "[PORTFOLIO] [MEU]"
-
       // return `[PORTFOLIO] ${res.data.ip} -> ${res.data.city}, ${res.data.country_name}`
       return {
         ip: res.data.ip,
