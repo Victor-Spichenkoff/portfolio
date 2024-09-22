@@ -52,7 +52,7 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
     const stringForNotMine = `[PORTFOLIO] ${ipInfo.ip} -> ${ipInfo.city}, ${ipInfo.country}`
     try {
       if(ipInfo.ip == "179.34.95.149") 
-        return axios(`${serverMaintenanceUrl}/sendIp/${stringForNotMine}`)
+        return axios(`${serverMaintenanceUrl}/sendIp/[PORTFOLIO] [MEU]`)
       
       if(stringForNotMine) axios(`${serverMaintenanceUrl}/sendIp/${stringForNotMine}`)
 
