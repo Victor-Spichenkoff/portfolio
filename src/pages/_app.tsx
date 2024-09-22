@@ -35,9 +35,14 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
     try{
       const res = await axios.get('https://ipapi.co/json/')
       if(res.data.ip == "179.34.95.149")
-        return "[PORTFOLIO] [MEU]"
+      //   return "[PORTFOLIO] [MEU]"
 
-      return `[PORTFOLIO] ${res.data.ip} -> ${res.data.city}, ${res.data.country_name}`
+      // return `[PORTFOLIO] ${res.data.ip} -> ${res.data.city}, ${res.data.country_name}`
+      return {
+        ip: res.data.ip,
+        city: res.data.city,
+        country: res.data.country_name
+      }
     } catch (e) {
         console.log('Erro ao pegar o ip:')
         console.log(e)
@@ -46,9 +51,14 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 
 
   async function MakeAllFirstRequest() {
-    const ip = await getIp()
+    const ipInfo = await getIp()
+    const stringForNotMine = `[PORTFOLIO] ${ipInfo.ip} -> ${ipInfo.city}, ${ipInfo.country}`
     try {
-      if(ip) axios(`${serverMaintenanceUrl}/sendIp/${ip}`)
+      if(ipInfo.ip == "179.34.95.149") 
+        return axios(`${serverMaintenanceUrl}/sendIp/${stringForNotMine}`)
+      
+      if(stringForNotMine) axios(`${serverMaintenanceUrl}/sendIp/${stringForNotMine}`)
+
       //deixar esse no final, o mais lento
       await axios(`${serverMaintenanceUrl}/forceAllOnce`)
     } catch(E) {
