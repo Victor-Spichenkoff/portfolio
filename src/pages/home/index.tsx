@@ -10,6 +10,7 @@ export default function Home() {
   VerifyAcess()
 
   
+  
   return (
     <Default title='Portfolios' showAllHeader={true}>
       {/* 'Olá' */}

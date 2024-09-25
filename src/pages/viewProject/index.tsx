@@ -12,12 +12,12 @@ const Editor = dynamic(() => import('@/components/functions/Editor'), { ssr: fal
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { SendIp } from '@/hooks/sendIp';
 
 
 
 export default function ViewProfile() {
     // VerifyAcess()
-
 
     const router = useRouter()
     const id = router.query.id

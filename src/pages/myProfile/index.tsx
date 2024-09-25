@@ -10,6 +10,7 @@ import { setStoragedProject, stringToHtml } from "@/hooks/useProject"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDoorOpen, faCopy } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
+import { SendIp } from "@/hooks/sendIp"
 
 
 export default function ViewProfile() {

@@ -10,6 +10,7 @@ import { stringToHtml } from "@/hooks/useProject"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCopy } from "@fortawesome/free-solid-svg-icons"
 import ServerError from "@/components/templates/serverError"
+import { SendIp } from "@/hooks/sendIp"
 
 
 export default function ViewProfile() {

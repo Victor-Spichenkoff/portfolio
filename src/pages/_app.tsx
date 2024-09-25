@@ -12,9 +12,9 @@ import { getStoragedUser, setToken } from '@/hooks/useUser'
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { serverMaintenanceUrl } from '@/global'
-
+import { MakeAllFirstRequest } from '@/utils/ip'
+import { useRouter } from 'next/router'
+import { SendIp } from '@/hooks/sendIp'
 
 config.autoAddCss = false; 
 
@@ -31,43 +31,7 @@ export default function App({ Component, pageProps, ip }: NewAppProps) {
 // export default function App({ Component, pageProps, ip }: AppProps) {
   let user = getStoragedUser()
 
-  async function getIp () {
-    try{
-      const res = await axios.get('https://ipapi.co/json/')
-      // return `[PORTFOLIO] ${res.data.ip} -> ${res.data.city}, ${res.data.country_name}`
-      return {
-        ip: res.data.ip,
-        city: res.data.city,
-        country: res.data.country_name
-      }
-    } catch (e) {
-        console.log('Erro ao pegar o ip:')
-        console.log(e)
-    }
-  }
-
-
-  async function MakeAllFirstRequest() {
-    const ipInfo = await getIp()
-    const stringForNotMine = `[PORTFOLIO] ${ipInfo.ip} -> ${ipInfo.city}, ${ipInfo.country}`
-    try {
-      if(ipInfo.ip == "179.34.95.149") 
-        return axios(`${serverMaintenanceUrl}/sendIp/[PORTFOLIO] [MEU]`)
-      
-      if(stringForNotMine) axios(`${serverMaintenanceUrl}/sendIp/${stringForNotMine}`)
-
-      //deixar esse no final, o mais lento
-      await axios(`${serverMaintenanceUrl}/forceAllOnce`)
-    } catch(E) {
-      console.log('Erro nos Make All Request')
-      console.log(E)
-    }
-  }
-
-  useEffect(()=> {
-    MakeAllFirstRequest()
-  }, [])
-
+  SendIp()
 
   if (user) {
     setToken(user)

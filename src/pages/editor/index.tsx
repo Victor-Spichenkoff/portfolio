@@ -9,10 +9,12 @@ import Link from 'next/link';
 import Error from '@/components/templates/Error';
 import { project_key } from '@/global';
 import { VerifyAcess } from '@/hooks/useUser';
+import { SendIp } from '@/hooks/sendIp';
 
 
 export default function CreateProject() {
     VerifyAcess()
+
     
 
     const router = useRouter()

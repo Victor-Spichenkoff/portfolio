@@ -76,9 +76,9 @@ function VerifyAcess(other?:string, timer:number=0) {
                 }
             }      
         })
-        // .catch(()=> {
-        //     router.push('/auth')
-        // })
+        .catch(()=> {
+            router.push('/auth')
+        })
 }
 
 
