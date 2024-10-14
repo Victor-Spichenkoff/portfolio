@@ -1,11 +1,15 @@
 import { MakeAllFirstRequest } from "@/utils/ip"
-import { NextRouter, useRouter } from "next/router"
+import { useRouter } from "next/router"
 import { useEffect } from "react"
 
 export const SendIp = () => {
   if(process.env.NODE_ENV == "development")
     return 
 
+  UseGetAndSendIp()
+}
+
+const UseGetAndSendIp = () => {
   const router = useRouter()
 
   useEffect(() => {
@@ -14,6 +18,5 @@ export const SendIp = () => {
       const { notForce } = router.query
 
       MakeAllFirstRequest(notForce == "true")
-  }, [router.isReady])
-
+  }, [router.isReady, router.query])
 }
