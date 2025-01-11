@@ -1,0 +1,139 @@
+:root {
+    .color1 {
+        color: #140e1a;
+    }
+
+    .color2 {
+        color: #0e3d62;
+    }
+
+    .color3 {
+        color: #087bba;
+    }
+
+    .color4 {
+        color: #08c8ff;
+    }
+
+    .color5 {
+        color: #0ffff8;
+    }
+}
+
+/* Fundo com gradiente dinâmico */
+
+
+/* Estilização principal */
+.fy-home {
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Limitador centralizado */
+#limiter-fy {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* Estilo para a seção de descoberta */
+.discovery {
+    color: transparent;
+    background-image: linear-gradient(to right, #ff9800, #00bcd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Grid flexível para os projetos */
+.fy {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo dos cards de projetos */
+.project-on-fy {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 250px;
+    text-align: center;
+    padding: 15px 25px;
+    flex: 1;
+}
+
+.project-on-fy:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Imagem do projeto */
+.project-on-fy > img {
+    border-radius: 3px;
+    padding: 20px;
+    width: 244px;
+    height: 231px;
+}
+
+/* Texto e descrição */
+.project-on-fy>p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #ffffffcc;
+}
+
+/* Carregamento */
+#sentinela {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#sentinela>img {
+    width: 40px;
+}
+
+/* Fim dos projetos */
+.no-more-projects {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.no-more-projects>p {
+    background-color: #424242;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover universal */
+.hoverScale:hover {
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .fy {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-on-fy {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .discovery {
+        font-size: 1.5rem;
+    }
+}
