@@ -10,7 +10,6 @@
     width: 100%;
     overflow-y: scroll;
     scroll-margin-bottom: 50px;
-    /* margin-top: 60px; */
 }
 
 #limiter-fy {
@@ -19,9 +18,6 @@
 }
 
 .fy{
-    /* display: grid; 
-    grid-template-columns: repeat(3, 1fr); */
-    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -36,14 +32,14 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: sans-serif;
-    /* width: 101.7%;
+    /* width: 101.7%;g
     overflow: hidden; */
     height: 40px;
     display: flex;
     justify-content: center;
     margin-bottom: 0px;
 
-    /* position: absolute;
+    /* position: absolute;g
     top: calc(var(--header-height));
     left: 50%;
     transform: translateX(-50%); */
@@ -53,7 +49,7 @@
 .project-on-fy {
     background-color: rgba(1, 27, 49, 0.986);
     color: rgb(255, 255, 255);
-
+    height: 320px;
     border-radius: 15px;
     box-shadow: 9px 9px  #000000;
     border-left: 2px solid #ffffff75;
@@ -91,11 +87,15 @@
 
 .project-on-fy > p {
     font-size: 17px;
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
 .likes-user{
-    margin-top: 40px;
+    margin-top: 40px; 
     display: flex;
     justify-content: space-between;
     width: 100%;
